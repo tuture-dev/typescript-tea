@@ -21,7 +21,20 @@ const { Title } = Typography;
 const { Option } = Select;
 const { TabPane } = Tabs;
 
-const todoListData = [
+interface Todo {
+  user: string;
+  time: string;
+  content: string;
+  isCompleted: boolean;
+}
+
+interface User {
+  id: string;
+  name: string;
+  avatar: string;
+}
+
+const todoListData: Todo[] = [
   {
     content: "图雀社区：汇聚精彩的免费实战教程",
     user: "mRcfps",
@@ -54,7 +67,7 @@ const todoListData = [
   }
 ];
 
-const userList = [
+const userList: User[] = [
   {
     id: "666666666",
     name: "图雀社区",
