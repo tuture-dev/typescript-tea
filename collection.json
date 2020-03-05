@@ -1849,10 +1849,7 @@
               "type": "diff-block",
               "file": "src/App.tsx",
               "commit": "756b2d45f9790caf91ab4c76c23dec06b7bf9da8",
-              "hiddenLines": [
-                191,
-                192
-              ],
+              "hiddenLines": [191, 192],
               "children": [
                 {
                   "type": "paragraph",
@@ -13238,8 +13235,10 @@
               ]
             },
             {
-              "type": "explain",
-              "fixed": true,
+              "type": "diff-block",
+              "file": "./src/App.tsx",
+              "commit": "2726f1094dd6830a85bfe273da795628856b00dd",
+              "hiddenLines": [],
               "children": [
                 {
                   "type": "paragraph",
