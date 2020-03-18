@@ -1,14 +1,14 @@
 import React from "react";
-import { List, Avatar, Menu, Dropdown, Modal } from "antd";
-import { DownOutlined, ExclamationCircleOutlined } from "@ant-design/icons";
+import { List, Avatar, Menu, Dropdown } from "antd";
+import { DownOutlined } from "@ant-design/icons";
 import { ClickParam } from "antd/lib/menu";
 
 import { Todo, getUserById } from "./utils/data";
 
-const { confirm } = Modal;
+type MenuKey = "complete" | "delete";
 
 interface ActionProps {
-  onClick: (key: "complete" | "delete") => void;
+  onClick: (key: MenuKey) => void;
   isCompleted: boolean;
 }
 
@@ -31,7 +31,7 @@ function Action({ onClick, isCompleted }: ActionProps) {
 
 interface TodoListProps {
   todoList: Todo[];
-  onClick: (todoId: string, key: "complete" | "delete") => void;
+  onClick: (todoId: string, key: MenuKey) => void;
 }
 
 function TodoList({ todoList, onClick }: TodoListProps) {
@@ -51,9 +51,7 @@ function TodoList({ todoList, onClick }: TodoListProps) {
                 overlay={() => (
                   <Action
                     isCompleted={item.isCompleted}
-                    onClick={(key: "complete" | "delete") =>
-                      onClick(item.id, key)
-                    }
+                    onClick={(key: MenuKey) => onClick(item.id, key)}
                   />
                 )}
               >
