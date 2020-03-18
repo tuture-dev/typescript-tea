@@ -5,7 +5,7 @@ import { ClickParam } from "antd/lib/menu";
 
 import { Todo, getUserById } from "./utils/data";
 
-type MenuKey = "complete" | "delete";
+export type MenuKey = "complete" | "delete";
 
 interface ActionProps {
   onClick: (key: MenuKey) => void;
