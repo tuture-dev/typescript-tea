@@ -16,7 +16,8 @@
       "created": "2020-04-06T01:46:37.842Z",
       "name": "类型即正义：TypeScript 从入门到实践（序章）",
       "topics": [],
-      "cover": ".tuture/assets/ts1.png"
+      "cover": ".tuture/assets/ts1.png",
+      "description": "本文通过动手实践的方式带你搭建一个 TypeScript 版本的 React 项目，并且配置了 Ant Design 组件库，为整个TypeScript 从入门到实践系列实战教程准备初始代码。"
     }
   ],
   "steps": [
