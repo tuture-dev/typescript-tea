@@ -5,20 +5,28 @@
   "created": "2020-03-04T03:02:15.850Z",
   "articles": [
     {
-      "name": "类型即正义：TypeScript 从入门到实践（一）",
-      "description": "JavaScript 已经占领了世界上的每一个角落，能访问网页的地方，基本上就有 JavaScript 在运作，然而 JavaScript 因为其动态、弱类型、解释型语言的特性、出错的调用栈隐蔽，使得开发者不仅在调试错误上花费大把时间，在团队协作开发时理解队友编写代码也极其困难。TypeScript 的出现极大的解决了上面的问题，TypeScript -- 一个 JavaScript 的超集，它作为一门编译型语言，提供了对类型系统和最新 ES 语法的支持，使得我们可以在享受使用 ES 最新语法的编写代码的同时，还能在写代码的过程中就规避很多潜在的语法、语义错误；并且其提供的类型系统使得我们可以在团队协作编写代码时可以很容易的了解队友代码的含义：输入和输出，大大提高了团队协作编写大型业务应用的效率。在现代 JavaScript 世界中，已经有很多大型库在使用 TypeScript 重构，包括前端三大框架：React、Vue、Angular，还有知名的组件库 antd，material，在很多公司内部的大型业务应用也在用 TypeScript 开发甚至重写现有的应用，所以如果你想编写大型业务应用或库，或者想写出更利于团队协作的代码，那么 TypeScript 有十足的理由值得你学习！本文是 TypeScript 系列教程的第一篇，主要通过使用 antd 组件库实战演练一个 TypeScript 版本 React TodoList 应用来讲解 TypeScript 的语法，使得你能在学会语法的同时还能完成一个实际可运行的项目。",
+      "name": "类型即正义：TypeScript 从入门到实践（序言）",
+      "description": "本文通过动手实践的方式带你搭建一个 TypeScript 版本的 React 项目，并且配置了 Ant Design 组件库，为整个TypeScript 从入门到实践系列实战教程准备初始代码。",
       "id": "cea18bc864f7a9b94223dcc718646b02",
       "topics": [],
-      "cover": ".tuture/assets/ts2.png",
+      "cover": ".tuture/assets/ts1-044f5e5a2ecd6e8c.png",
       "created": "2020-04-06T01:47:37.842Z"
     },
     {
       "id": "C_ao1Yvqy",
       "created": "2020-04-06T01:46:37.842Z",
-      "name": "类型即正义：TypeScript 从入门到实践（序章）",
+      "name": "类型即正义：TypeScript 从入门到实践（一）",
       "topics": [],
-      "cover": ".tuture/assets/ts1.png",
-      "description": "本文通过动手实践的方式带你搭建一个 TypeScript 版本的 React 项目，并且配置了 Ant Design 组件库，为整个TypeScript 从入门到实践系列实战教程准备初始代码。"
+      "cover": ".tuture/assets/ts2-5185d2d4eef2179f.png",
+      "description": "JavaScript 已经占领了世界上的每一个角落，能访问网页的地方，基本上就有 JavaScript 在运作，然而 JavaScript 因为其动态、弱类型、解释型语言的特性、出错的调用栈隐蔽，使得开发者不仅在调试错误上花费大把时间，在团队协作开发时理解队友编写代码也极其困难。TypeScript 的出现极大的解决了上面的问题，TypeScript -- 一个 JavaScript 的超集，它作为一门编译型语言，提供了对类型系统和最新 ES 语法的支持，使得我们可以在享受使用 ES 最新语法的编写代码的同时，还能在写代码的过程中就规避很多潜在的语法、语义错误；并且其提供的类型系统使得我们可以在团队协作编写代码时可以很容易的了解队友代码的含义：输入和输出，大大提高了团队协作编写大型业务应用的效率。在现代 JavaScript 世界中，已经有很多大型库在使用 TypeScript 重构，包括前端三大框架：React、Vue、Angular，还有知名的组件库 antd，material，在很多公司内部的大型业务应用也在用 TypeScript 开发甚至重写现有的应用，所以如果你想编写大型业务应用或库，或者想写出更利于团队协作的代码，那么 TypeScript 有十足的理由值得你学习！本文是 TypeScript 系列教程的第一篇，主要通过使用 antd 组件库实战演练一个 TypeScript 版本 React TodoList 应用来讲解 TypeScript 的语法，使得你能在学会语法的同时还能完成一个实际可运行的项目。"
+    },
+    {
+      "id": "H2r1tpF_v",
+      "created": "2020-04-06T10:20:24.050Z",
+      "name": "类型即正义：TypeScript 从入门到实践（二）",
+      "topics": [],
+      "cover": ".tuture/assets/ts4.png",
+      "description": "了解了基础的 TS 类型，接口之后，我们开始了解如何给更加复杂的结构注解类型，这就是我们这节里面要引出的函数，进而我们讲解如何对类型进行运算：交叉类型和联合类型，最后我们讲解了最原子类型：字面量类型，以及如何与联合类型搭配实现类型守卫效果。"
     }
   ],
   "steps": [
@@ -1091,7 +1099,7 @@
     {
       "commit": "756b2d45f9790caf91ab4c76c23dec06b7bf9da8",
       "id": "a4w1VbT4C",
-      "articleId": "C_ao1Yvqy",
+      "articleId": "cea18bc864f7a9b94223dcc718646b02",
       "type": "step",
       "children": [
         {
@@ -1774,8 +1782,14 @@
               "file": "package.json",
               "commit": "756b2d45f9790caf91ab4c76c23dec06b7bf9da8",
               "hiddenLines": [
-                [0, 1],
-                [33, 48]
+                [
+                  0,
+                  1
+                ],
+                [
+                  33,
+                  48
+                ]
               ],
               "children": [
                 {
@@ -1966,7 +1980,12 @@
               "type": "diff-block",
               "file": "src/App.tsx",
               "commit": "756b2d45f9790caf91ab4c76c23dec06b7bf9da8",
-              "hiddenLines": [[191, 192]],
+              "hiddenLines": [
+                [
+                  191,
+                  192
+                ]
+              ],
               "children": [
                 {
                   "type": "paragraph",
@@ -2219,54 +2238,198 @@
               "file": "yarn.lock",
               "commit": "756b2d45f9790caf91ab4c76c23dec06b7bf9da8",
               "hiddenLines": [
-                [0, 0],
-                [40, 212],
-                [221, 959],
-                [968, 1771],
-                [1785, 1889],
-                [1947, 2020],
-                [2032, 2055],
-                [2064, 2122],
-                [2134, 2230],
-                [2245, 2314],
-                [2323, 2840],
-                [2852, 2907],
-                [2919, 3006],
-                [3030, 3050],
-                [3062, 3146],
-                [3160, 3265],
-                [3280, 3491],
-                [3505, 3532],
-                [3544, 3740],
-                [3752, 3927],
-                [3936, 4887],
-                [4899, 5010],
-                [5022, 5215],
-                [5227, 5349],
-                [5361, 6283],
-                [6297, 6410],
-                [6443, 6540],
-                [6552, 6769],
-                [6778, 6800],
-                [6817, 6897],
-                [6917, 7148],
-                [7157, 7255],
-                [7269, 8445],
-                [8459, 8467],
-                [8476, 8585],
-                [8594, 8623],
-                [8965, 8970],
-                [8984, 9022],
-                [9040, 9327],
-                [9336, 9374],
-                [9386, 9499],
-                [9514, 9623],
-                [9637, 9759],
-                [9771, 10091],
-                [10103, 10420],
-                [10432, 10479],
-                [10491, 10832],
-                [10846, 11328]
+                [
+                  0,
+                  0
+                ],
+                [
+                  40,
+                  212
+                ],
+                [
+                  221,
+                  959
+                ],
+                [
+                  968,
+                  1771
+                ],
+                [
+                  1785,
+                  1889
+                ],
+                [
+                  1947,
+                  2020
+                ],
+                [
+                  2032,
+                  2055
+                ],
+                [
+                  2064,
+                  2122
+                ],
+                [
+                  2134,
+                  2230
+                ],
+                [
+                  2245,
+                  2314
+                ],
+                [
+                  2323,
+                  2840
+                ],
+                [
+                  2852,
+                  2907
+                ],
+                [
+                  2919,
+                  3006
+                ],
+                [
+                  3030,
+                  3050
+                ],
+                [
+                  3062,
+                  3146
+                ],
+                [
+                  3160,
+                  3265
+                ],
+                [
+                  3280,
+                  3491
+                ],
+                [
+                  3505,
+                  3532
+                ],
+                [
+                  3544,
+                  3740
+                ],
+                [
+                  3752,
+                  3927
+                ],
+                [
+                  3936,
+                  4887
+                ],
+                [
+                  4899,
+                  5010
+                ],
+                [
+                  5022,
+                  5215
+                ],
+                [
+                  5227,
+                  5349
+                ],
+                [
+                  5361,
+                  6283
+                ],
+                [
+                  6297,
+                  6410
+                ],
+                [
+                  6443,
+                  6540
+                ],
+                [
+                  6552,
+                  6769
+                ],
+                [
+                  6778,
+                  6800
+                ],
+                [
+                  6817,
+                  6897
+                ],
+                [
+                  6917,
+                  7148
+                ],
+                [
+                  7157,
+                  7255
+                ],
+                [
+                  7269,
+                  8445
+                ],
+                [
+                  8459,
+                  8467
+                ],
+                [
+                  8476,
+                  8585
+                ],
+                [
+                  8594,
+                  8623
+                ],
+                [
+                  8965,
+                  8970
+                ],
+                [
+                  8984,
+                  9022
+                ],
+                [
+                  9040,
+                  9327
+                ],
+                [
+                  9336,
+                  9374
+                ],
+                [
+                  9386,
+                  9499
+                ],
+                [
+                  9514,
+                  9623
+                ],
+                [
+                  9637,
+                  9759
+                ],
+                [
+                  9771,
+                  10091
+                ],
+                [
+                  10103,
+                  10420
+                ],
+                [
+                  10432,
+                  10479
+                ],
+                [
+                  10491,
+                  10832
+                ],
+                [
+                  10846,
+                  11328
+                ]
               ],
               "children": [
                 {
@@ -2404,7 +2567,7 @@
     {
       "commit": "2726f1094dd6830a85bfe273da795628856b00dd",
       "id": "luz5AxX0g",
-      "articleId": "cea18bc864f7a9b94223dcc718646b02",
+      "articleId": "C_ao1Yvqy",
       "type": "step",
       "children": [
         {
@@ -2609,7 +2772,12 @@
               "type": "diff-block",
               "file": ".gitignore",
               "commit": "2726f1094dd6830a85bfe273da795628856b00dd",
-              "hiddenLines": [[0, 19]],
+              "hiddenLines": [
+                [
+                  0,
+                  19
+                ]
+              ],
               "children": [
                 {
                   "type": "paragraph",
@@ -4248,10 +4416,22 @@
               "file": "src/App.tsx",
               "commit": "2726f1094dd6830a85bfe273da795628856b00dd",
               "hiddenLines": [
-                [0, 22],
-                [44, 67],
-                [72, 96],
-                [99, 189]
+                [
+                  0,
+                  22
+                ],
+                [
+                  44,
+                  67
+                ],
+                [
+                  72,
+                  96
+                ],
+                [
+                  99,
+                  189
+                ]
               ],
               "children": [
                 {
@@ -4377,7 +4557,7 @@
     {
       "commit": "c19a68c181fd97f289ec5049355bcdfc48b30570",
       "id": "n-5jKURDa",
-      "articleId": "cea18bc864f7a9b94223dcc718646b02",
+      "articleId": "C_ao1Yvqy",
       "type": "step",
       "children": [
         {
@@ -6148,8 +6328,14 @@
               "file": "package.json",
               "commit": "c19a68c181fd97f289ec5049355bcdfc48b30570",
               "hiddenLines": [
-                [0, 14],
-                [22, 46]
+                [
+                  0,
+                  14
+                ],
+                [
+                  22,
+                  46
+                ]
               ],
               "children": [
                 {
@@ -6283,10 +6469,22 @@
               "file": "src/App.tsx",
               "commit": "c19a68c181fd97f289ec5049355bcdfc48b30570",
               "hiddenLines": [
-                [105, 105],
-                [129, 155],
-                [166, 172],
-                [184, 200]
+                [
+                  105,
+                  105
+                ],
+                [
+                  129,
+                  155
+                ],
+                [
+                  166,
+                  172
+                ],
+                [
+                  184,
+                  200
+                ]
               ],
               "children": [
                 {
@@ -6556,6 +6754,7 @@
     {
       "commit": "f24dc3125e7c6f41c1638a84b4e3dbfaf5d9a892",
       "id": "q6hjpT27I",
+      "articleId": "H2r1tpF_v",
       "type": "step",
       "children": [
         {
@@ -7690,9 +7889,18 @@
               "file": "src/utils/data.ts",
               "commit": "f24dc3125e7c6f41c1638a84b4e3dbfaf5d9a892",
               "hiddenLines": [
-                [70, 85],
-                [92, 96],
-                [102, 102]
+                [
+                  70,
+                  85
+                ],
+                [
+                  92,
+                  96
+                ],
+                [
+                  102,
+                  102
+                ]
               ],
               "children": [
                 {
@@ -8098,9 +8306,18 @@
               "file": "src/App.tsx",
               "commit": "f24dc3125e7c6f41c1638a84b4e3dbfaf5d9a892",
               "hiddenLines": [
-                [5, 8],
-                [82, 96],
-                [113, 117]
+                [
+                  5,
+                  8
+                ],
+                [
+                  82,
+                  96
+                ],
+                [
+                  113,
+                  117
+                ]
               ],
               "children": [
                 {
@@ -8292,6 +8509,7 @@
     {
       "commit": "2b7372ddc7003137e25d870d4b0513ab356c1ae2",
       "id": "sETI3SGhj",
+      "articleId": "H2r1tpF_v",
       "type": "step",
       "children": [
         {
@@ -8964,13 +9182,30 @@
               ]
             },
             {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "小结"
+                }
+              ],
+              "id": "ACGRZPUC0"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "这一小节中我们学习了交叉类型和联合类型，它们是 TS 类型系统中的类型运算的产物，交叉类型是多个类型组成一个类型，最终结果类型是多个类型的总和，而联合类型是多个类型组成一个综合体，最终的结果类型是多个类型之中的某一个类型，交叉类型主要用于构造响应体，联合类型主要用于处理单变量被注解为多类型之一的场景，它还会与我们下一节要讲的字面量类型发生化学反应，实现枚举和处理类型守卫，我们将马上来讲解这些神奇的化学反应。"
+                }
+              ]
+            },
+            {
               "type": "heading-two",
               "children": [
                 {
                   "text": "字面量类型与类型守卫"
                 }
               ],
-              "id": "W81AVBRI-"
+              "id": "9lVWigs6Z"
             },
             {
               "type": "paragraph",
@@ -9865,62 +10100,6 @@
           ]
         },
         {
-          "file": "src/App.tsx",
-          "display": true,
-          "commit": "2b7372ddc7003137e25d870d4b0513ab356c1ae2",
-          "type": "file",
-          "children": [
-            {
-              "type": "explain",
-              "fixed": true,
-              "children": [
-                {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "diff-block",
-              "file": "src/App.tsx",
-              "commit": "2b7372ddc7003137e25d870d4b0513ab356c1ae2",
-              "hiddenLines": [
-                [0, 33],
-                [57, 71],
-                [88, 92]
-              ],
-              "children": [
-                {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "explain",
-              "fixed": true,
-              "children": [
-                {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
           "file": "src/TodoList.tsx",
           "display": true,
           "commit": "2b7372ddc7003137e25d870d4b0513ab356c1ae2",
@@ -9941,7 +10120,14 @@
                       "code": true
                     },
                     {
-                      "text": " ，改进其中的逻辑如下："
+                      "text": " ，我们近一步完善 "
+                    },
+                    {
+                      "text": "TodoList.tsx",
+                      "code": true
+                    },
+                    {
+                      "text": " 的逻辑："
                     }
                   ]
                 }
@@ -9952,8 +10138,14 @@
               "file": "src/TodoList.tsx",
               "commit": "2b7372ddc7003137e25d870d4b0513ab356c1ae2",
               "hiddenLines": [
-                [49, 54],
-                [72, 94]
+                [
+                  49,
+                  54
+                ],
+                [
+                  72,
+                  94
+                ]
               ],
               "children": [
                 {
@@ -9992,7 +10184,382 @@
                           "code": true
                         },
                         {
-                          "text": " "
+                          "text": " 组件，它接收两个参数，"
+                        },
+                        {
+                          "text": "isCompleted",
+                          "code": true
+                        },
+                        {
+                          "text": " 和 "
+                        },
+                        {
+                          "text": "onClick",
+                          "code": true
+                        },
+                        {
+                          "text": " ，前者用来标志现在对 Todo 操作是重做还是完成，后者用来处理点击事件，根据 "
+                        },
+                        {
+                          "text": "todo.id",
+                          "code": true
+                        },
+                        {
+                          "text": " 和 操作的类型 "
+                        },
+                        {
+                          "text": "key",
+                          "code": true
+                        },
+                        {
+                          "text": " 来处理。"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "我们在 "
+                        },
+                        {
+                          "text": "Action",
+                          "code": true
+                        },
+                        {
+                          "text": " 组件的 "
+                        },
+                        {
+                          "text": "onClick",
+                          "code": true
+                        },
+                        {
+                          "text": " 属性里面调用的 "
+                        },
+                        {
+                          "text": "onClick",
+                          "code": true
+                        },
+                        {
+                          "text": " 函数是父组件传下来的函数，所以我们需要额外在 "
+                        },
+                        {
+                          "text": "TodoListProps",
+                          "code": true
+                        },
+                        {
+                          "text": " 加上这个 "
+                        },
+                        {
+                          "text": "onClick",
+                          "code": true
+                        },
+                        {
+                          "text": " 函数的类型定义，按照我们之前学习的注解函数的知识，这里我们需要注解参数列表和返回值，因为 "
+                        },
+                        {
+                          "text": "onClick",
+                          "code": true
+                        },
+                        {
+                          "text": " 函数内部执行点击逻辑，不需要返回值，所以我们给它注解了 "
+                        },
+                        {
+                          "text": "void",
+                          "code": true
+                        },
+                        {
+                          "text": " 类型，针对参数列表，"
+                        },
+                        {
+                          "text": "todoId",
+                          "code": true
+                        },
+                        {
+                          "text": " 比较简单，一般是字符串，所以注解为 "
+                        },
+                        {
+                          "text": "string",
+                          "code": true
+                        },
+                        {
+                          "text": " 类型，而 "
+                        },
+                        {
+                          "text": "key",
+                          "code": true
+                        },
+                        {
+                          "text": " 标注操作的类型，它是一个字面量联合类型，允许有 "
+                        },
+                        {
+                          "text": "complete",
+                          "code": true
+                        },
+                        {
+                          "text": " 和 "
+                        },
+                        {
+                          "text": "delete",
+                          "code": true
+                        },
+                        {
+                          "text": " 两种"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "接着我们来看 Action 组件，我们在上一步已经讲解它接收两个参数，因此我们新增一个 "
+                        },
+                        {
+                          "text": "ActionProps",
+                          "code": true
+                        },
+                        {
+                          "text": " 来注解 Action 组件的参数列表，可以看到其中的 "
+                        },
+                        {
+                          "text": "onClick",
+                          "code": true
+                        },
+                        {
+                          "text": " 和我们上一步讲解的一样，"
+                        },
+                        {
+                          "text": "isCompleted",
+                          "code": true
+                        },
+                        {
+                          "text": " 注解为 "
+                        },
+                        {
+                          "text": "boolean",
+                          "code": true
+                        },
+                        {
+                          "text": " 。"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "接在在 Action 组件里我们定义了 Menu  "
+                        },
+                        {
+                          "text": "onClick",
+                          "code": true
+                        },
+                        {
+                          "text": "的处理函数 "
+                        },
+                        {
+                          "text": "handleActionClick ",
+                          "code": true
+                        },
+                        {
+                          "text": " 是一个"
+                        },
+                        {
+                          "text": "ClickParam",
+                          "code": true
+                        },
+                        {
+                          "text": " 类型，它是从 "
+                        },
+                        {
+                          "text": "antd/lib/menu",
+                          "code": true
+                        },
+                        {
+                          "text": " 导入的 ，由组件库提供的，然后我们从参数里面解构出来了 "
+                        },
+                        {
+                          "text": "key",
+                          "code": true
+                        },
+                        {
+                          "text": " ，进而通过字面量类型进行类型守卫，处理了对于的 "
+                        },
+                        {
+                          "text": "onClick",
+                          "code": true
+                        },
+                        {
+                          "text": " 逻辑"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "最后我们做的一点改进就是在 Menu 里面根据 "
+                        },
+                        {
+                          "text": "isCompleted",
+                          "code": true
+                        },
+                        {
+                          "text": " 展示 “重做” 还是 “完成”。"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/App.tsx",
+          "display": true,
+          "commit": "2b7372ddc7003137e25d870d4b0513ab356c1ae2",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "改进了 "
+                    },
+                    {
+                      "text": "src/TodoList.tsx",
+                      "code": true
+                    },
+                    {
+                      "text": " ，接着我们再来改进 "
+                    },
+                    {
+                      "text": "src/App.tsx",
+                      "code": true
+                    },
+                    {
+                      "text": " 里面对应于 "
+                    },
+                    {
+                      "text": "TodoList",
+                      "code": true
+                    },
+                    {
+                      "text": " 的逻辑，我们打开 "
+                    },
+                    {
+                      "text": "src/App.tsx",
+                      "code": true
+                    },
+                    {
+                      "text": " 对其中的内容做出对应的修改如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/App.tsx",
+              "commit": "2b7372ddc7003137e25d870d4b0513ab356c1ae2",
+              "hiddenLines": [
+                [
+                  0,
+                  33
+                ],
+                [
+                  57,
+                  71
+                ],
+                [
+                  88,
+                  92
+                ]
+              ],
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "可以看到上面主要就是两处改动："
+                    }
+                  ]
+                },
+                {
+                  "type": "bulleted-list",
+                  "children": [
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "给 "
+                        },
+                        {
+                          "text": "TodoList",
+                          "code": true
+                        },
+                        {
+                          "text": " 增加 "
+                        },
+                        {
+                          "text": "onClick",
+                          "code": true
+                        },
+                        {
+                          "text": " 属性"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "实现 "
+                        },
+                        {
+                          "text": "onClick",
+                          "code": true
+                        },
+                        {
+                          "text": " 函数，根据字面量类型 "
+                        },
+                        {
+                          "text": "key",
+                          "code": true
+                        },
+                        {
+                          "text": " 进行类型守卫处理对应的数据更改逻辑"
                         }
                       ],
                       "level": 0,
@@ -10009,10 +10576,19 @@
           "fixed": true,
           "children": [
             {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "小结"
+                }
+              ],
+              "id": "mIt1RbUMa"
+            },
+            {
               "type": "paragraph",
               "children": [
                 {
-                  "text": ""
+                  "text": "在这个小结中我们学习了字面量类型和类型守卫，字面量类型与联合类型搭配可以实现枚举的效果，也可以处理类型守卫，字面量类型是 TS 中最原子的类型，它不可以再进行拆解，而类型守卫主要是在针对联合类型时，TS 编译器无法处理，需要通过开发者手工辅助 TS 编译器处理类型二存在。"
                 }
               ]
             }
@@ -10076,9 +10652,18 @@
               "file": "src/TodoList.tsx",
               "commit": "3c6721eba0d387c5e55a758232a963a98524b0b4",
               "hiddenLines": [
-                [18, 33],
-                [42, 54],
-                [65, 90]
+                [
+                  18,
+                  33
+                ],
+                [
+                  42,
+                  54
+                ],
+                [
+                  65,
+                  90
+                ]
               ],
               "children": [
                 {
@@ -10179,8 +10764,14 @@
               "file": "src/App.tsx",
               "commit": "ff925f8d8e6f44d9051c22ed7c54e9727d015c15",
               "hiddenLines": [
-                [21, 35],
-                [44, 92]
+                [
+                  21,
+                  35
+                ],
+                [
+                  44,
+                  92
+                ]
               ],
               "children": [
                 {
@@ -10233,7 +10824,12 @@
               "type": "diff-block",
               "file": "src/TodoInput.tsx",
               "commit": "ff925f8d8e6f44d9051c22ed7c54e9727d015c15",
-              "hiddenLines": [[5, 24]],
+              "hiddenLines": [
+                [
+                  5,
+                  24
+                ]
+              ],
               "children": [
                 {
                   "type": "paragraph",
@@ -10286,8 +10882,14 @@
               "file": "src/TodoList.tsx",
               "commit": "ff925f8d8e6f44d9051c22ed7c54e9727d015c15",
               "hiddenLines": [
-                [0, 3],
-                [12, 83]
+                [
+                  0,
+                  3
+                ],
+                [
+                  12,
+                  83
+                ]
               ],
               "children": [
                 {
