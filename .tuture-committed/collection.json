@@ -8,24 +8,33 @@
       "name": "类型即正义：TypeScript 从入门到实践（序言）",
       "description": "本文通过动手实践的方式带你搭建一个 TypeScript 版本的 React 项目，并且配置了 Ant Design 组件库，为整个TypeScript 从入门到实践系列实战教程准备初始代码。",
       "id": "cea18bc864f7a9b94223dcc718646b02",
-      "topics": [],
-      "cover": ".tuture/assets/ts1-044f5e5a2ecd6e8c.png",
+      "topics": [
+        "TypeScript",
+        "React"
+      ],
+      "cover": "/.tuture/assets/ts1-044f5e5a2ecd6e8c.png",
       "created": "2020-04-06T01:47:37.842Z"
     },
     {
       "id": "C_ao1Yvqy",
       "created": "2020-04-06T01:46:37.842Z",
       "name": "类型即正义：TypeScript 从入门到实践（一）",
-      "topics": [],
-      "cover": ".tuture/assets/ts2-5185d2d4eef2179f.png",
+      "topics": [
+        "TypeScript",
+        "React"
+      ],
+      "cover": "//.tuture/assets/ts2-5185d2d4eef2179f.png",
       "description": "JavaScript 已经占领了世界上的每一个角落，能访问网页的地方，基本上就有 JavaScript 在运作，然而 JavaScript 因为其动态、弱类型、解释型语言的特性、出错的调用栈隐蔽，使得开发者不仅在调试错误上花费大把时间，在团队协作开发时理解队友编写代码也极其困难。TypeScript 的出现极大的解决了上面的问题，TypeScript -- 一个 JavaScript 的超集，它作为一门编译型语言，提供了对类型系统和最新 ES 语法的支持，使得我们可以在享受使用 ES 最新语法的编写代码的同时，还能在写代码的过程中就规避很多潜在的语法、语义错误；并且其提供的类型系统使得我们可以在团队协作编写代码时可以很容易的了解队友代码的含义：输入和输出，大大提高了团队协作编写大型业务应用的效率。在现代 JavaScript 世界中，已经有很多大型库在使用 TypeScript 重构，包括前端三大框架：React、Vue、Angular，还有知名的组件库 antd，material，在很多公司内部的大型业务应用也在用 TypeScript 开发甚至重写现有的应用，所以如果你想编写大型业务应用或库，或者想写出更利于团队协作的代码，那么 TypeScript 有十足的理由值得你学习！本文是 TypeScript 系列教程的第一篇，主要通过使用 antd 组件库实战演练一个 TypeScript 版本 React TodoList 应用来讲解 TypeScript 的语法，使得你能在学会语法的同时还能完成一个实际可运行的项目。"
     },
     {
       "id": "H2r1tpF_v",
       "created": "2020-04-06T10:20:24.050Z",
       "name": "类型即正义：TypeScript 从入门到实践（二）",
-      "topics": [],
-      "cover": ".tuture/assets/ts4.png",
+      "topics": [
+        "TypeScript",
+        "React"
+      ],
+      "cover": "/.tuture/assets/ts4.png",
       "description": "了解了基础的 TS 类型，接口之后，我们开始了解如何给更加复杂的结构注解类型，这就是我们这节里面要引出的函数，进而我们讲解如何对类型进行运算：交叉类型和联合类型，最后我们讲解了最原子类型：字面量类型，以及如何与联合类型搭配实现类型守卫效果。"
     }
   ],
