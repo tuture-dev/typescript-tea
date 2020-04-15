@@ -12,7 +12,7 @@
         "TypeScript",
         "React"
       ],
-      "cover": ".tuture/assets/ts1-044f5e5a2ecd6e8c.png",
+      "cover": "https://imgkr.cn-bj.ufileos.com/42a9feee-4d55-41cc-a770-e210a777f38c.png",
       "created": "2020-04-06T01:47:37.842Z"
     },
     {
@@ -23,7 +23,7 @@
         "TypeScript",
         "React"
       ],
-      "cover": ".tuture/assets/ts2-5185d2d4eef2179f.png",
+      "cover": "https://imgkr.cn-bj.ufileos.com/04cd8d13-aa08-47f8-bb45-c933c03260f1.png",
       "description": "这一节我们来重点讲解一下 TS 基础类型，这是使用 TypeScript 进行编程的基础，在详细讲解并实践了 TypeScript 类型之后，我们还会了解 TypeScript 特殊的内容：枚举和接口，它们允许你给复杂的 JS 数据结构进行类型注解。"
     },
     {
@@ -34,8 +34,18 @@
         "TypeScript",
         "React"
       ],
-      "cover": ".tuture/assets/ts4.png",
+      "cover": "https://imgkr.cn-bj.ufileos.com/233006bf-c5ae-4721-97ea-4817cd1fc8c7.png",
       "description": "了解了基础的 TS 类型，接口之后，我们开始了解如何给更加复杂的结构注解类型，这就是我们这节里面要引出的函数，进而我们讲解如何对类型进行运算：交叉类型和联合类型，最后我们讲解了最原子类型：字面量类型，以及如何与联合类型搭配实现类型守卫效果。"
+    },
+    {
+      "id": "_-ybXYu3c",
+      "created": "2020-04-10T13:04:44.150Z",
+      "name": "类型即正义：TypeScript 从入门到实践（三）",
+      "topics": [
+        "TypeScript",
+        "React"
+      ],
+      "cover": ""
     }
   ],
   "steps": [
@@ -1419,7 +1429,7 @@
                 },
                 {
                   "type": "image",
-                  "url": ".tuture/assets/image.png",
+                  "url": "https://imgkr.cn-bj.ufileos.com/fd00d350-511b-4eab-919b-2cd0882c96d9.png",
                   "children": [
                     {
                       "text": ""
@@ -5205,7 +5215,7 @@
             },
             {
               "type": "image",
-              "url": ".tuture/assets/image-ec0575e36632e4e2.png",
+              "url": "https://imgkr.cn-bj.ufileos.com/b257ee2b-af70-4828-af63-bf49ba5c9bf7.png",
               "children": [
                 {
                   "text": ""
@@ -9202,7 +9212,7 @@
             },
             {
               "type": "image",
-              "url": ".tuture/assets/image-424290f29ec31da8.png",
+              "url": "https://imgkr.cn-bj.ufileos.com/dff2724f-8535-491c-a146-d7fab26aa4f5.png",
               "children": [
                 {
                   "text": ""
@@ -9849,7 +9859,7 @@
             },
             {
               "type": "image",
-              "url": ".tuture/assets/image-8cb30281a741b886.png",
+              "url": "https://imgkr.cn-bj.ufileos.com/ea108ffe-18b2-4a94-99ab-b72114bb8ef3.png",
               "children": [
                 {
                   "text": ""
@@ -10101,7 +10111,7 @@
             },
             {
               "type": "image",
-              "url": ".tuture/assets/image-112f4036bf738207.png",
+              "url": "https://imgkr.cn-bj.ufileos.com/d2dd5112-29b4-4f01-aa09-c3665c41f974.png",
               "children": [
                 {
                   "text": ""
@@ -10627,7 +10637,7 @@
     {
       "commit": "3c6721eba0d387c5e55a758232a963a98524b0b4",
       "id": "L61QtcW-f",
-      "articleId": null,
+      "articleId": "_-ybXYu3c",
       "type": "step",
       "children": [
         {
@@ -10649,7 +10659,533 @@
               "type": "paragraph",
               "children": [
                 {
-                  "text": ""
+                  "text": "就像我们为了在平时开发中更加灵活而创建变量或者干掉硬编码数据一样，TS 为我们提供了类型别名，它允许你为类型创建一个名字，这个名字就是类型的别名，进而你可以在多处使用这个别名，并且有必要的时候，你可以更改别名的值（类型），以达到一次替换，多处应用的效果。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们来看一个简单的类型别名的例子，假如我们有一个获取一个人姓名的函数，它接收一个参数，这个参数有可能直接是要获取的姓名，它是一个 "
+                },
+                {
+                  "text": "string",
+                  "code": true
+                },
+                {
+                  "text": " 类型，也有可能是一个另外一个函数，需要调用它以获取姓名，它是一个函数类型，我们来看一下这个例子："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "ts",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "function getName(n) {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  if (typeof n === 'string') {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "    return n;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  } else {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "    return n();"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  }"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "如果我们要给这个 "
+                },
+                {
+                  "text": "n",
+                  "code": true
+                },
+                {
+                  "text": " 进行类型注解，那么它应该同时是 "
+                },
+                {
+                  "text": "string | () => string",
+                  "code": true
+                },
+                {
+                  "text": " ，是 "
+                },
+                {
+                  "text": "string",
+                  "code": true
+                },
+                {
+                  "text": " 类型和 "
+                },
+                {
+                  "text": "() => string",
+                  "code": true
+                },
+                {
+                  "text": " 函数类型的联合类型，有过一定开发经验的同学可能会发掘，这样写可能很影响原代码的可读性，而且这个 "
+                },
+                {
+                  "text": "n",
+                  "code": true
+                },
+                {
+                  "text": " 的类型可能会变化，因为我们的函数可能扩展，所以如果我们用一个类型别名把这个 "
+                },
+                {
+                  "text": "n",
+                  "code": true
+                },
+                {
+                  "text": " 的类型表示出来，那么就类似我们用变量替代了硬编码，可扩展性就更强了，我们马上来尝试一下："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "ts",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "type NameParams = 'string' | () => 'string';"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "function getName(n: NameParams): string {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  // ... 其它一样"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "可以看到我们用了一个 "
+                },
+                {
+                  "text": "NameParams",
+                  "code": true
+                },
+                {
+                  "text": " 类型别名，它保存着原联合类型，类型别名就是等号左边是 "
+                },
+                {
+                  "text": "type",
+                  "code": true
+                },
+                {
+                  "text": " 关键字加上别名变量，等号右边是带保存的类型，这个类型很广，它可以是字面量类型，基础类型，元组、函数、联合类型和交叉类型、甚至还可以是其他类型别名的组合。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "所以对于上面的 "
+                },
+                {
+                  "text": "NameParams",
+                  "code": true
+                },
+                {
+                  "text": " ，我们可以进一步拆解它为如下的样子："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "ts",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "type Name = string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "type NameResolver = () => string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "type NameParams = Name | NameResolver;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "function getName(n: NameParams): Name {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  // ... 其他一样"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们看到，上面这个不仅更加细粒度，我们将 "
+                },
+                {
+                  "text": "NameParams",
+                  "code": true
+                },
+                {
+                  "text": " 拆成了两个类型别名："
+                },
+                {
+                  "text": "Name",
+                  "code": true
+                },
+                {
+                  "text": " 和 "
+                },
+                {
+                  "text": "NameResolver",
+                  "code": true
+                },
+                {
+                  "text": " ，分别处理 "
+                },
+                {
+                  "text": "string",
+                  "code": true
+                },
+                {
+                  "text": " 和 "
+                },
+                {
+                  "text": "() => string",
+                  "code": true
+                },
+                {
+                  "text": " 的情况，然后通过联合操作符联合赋值给 "
+                },
+                {
+                  "text": "NameParams",
+                  "code": true
+                },
+                {
+                  "text": " ；还带来了一个优势，我们的返回值可以更加明确就是 "
+                },
+                {
+                  "text": "Name",
+                  "code": true
+                },
+                {
+                  "text": " 类型，这样 "
+                },
+                {
+                  "text": "Name",
+                  "code": true
+                },
+                {
+                  "text": " 变化，它可能变成 "
+                },
+                {
+                  "text": "number",
+                  "code": true
+                },
+                {
+                  "text": " 类型，那么也能很好的反应这个变化，且只需要修改一下 "
+                },
+                {
+                  "text": "Name",
+                  "code": true
+                },
+                {
+                  "text": " 的值为 "
+                },
+                {
+                  "text": "number",
+                  "code": true
+                },
+                {
+                  "text": " 类型就可以了，所有其他的 "
+                },
+                {
+                  "text": "Name",
+                  "code": true
+                },
+                {
+                  "text": "  类型会自动变化。"
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "类型别名与接口"
+                }
+              ],
+              "id": "MW4nIv8SV"
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "有同学读到这里，可能有疑问了，这个类型别名貌似无所不能嘛，那它和接口有什么区别了？"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "接口主要是用来定义一个结构的类型，比如定义一个对象的类型，而类型别名可以是任意细粒度的类型定义，比如我们前面讲的最原子的字母量类型如 "
+                },
+                {
+                  "text": "'hello tuture'",
+                  "code": true
+                },
+                {
+                  "text": " 类型，到对象类型如："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "ts",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "type tuture = {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  tutureCommunity: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  editure: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  tutureDocs: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "上面这个类型我们定义了一个包含三个属性的对象类型，并用 "
+                },
+                {
+                  "text": "tuture",
+                  "code": true
+                },
+                {
+                  "text": " 别名来存储它们。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "定义上面这个对象的类型我们可以用之前学到的接口这样写："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "ts",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "interface Tuture {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  tutureCommunity: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  editure: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  tutureDocs: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "可以看到类型别名既可以表达接口所表达的类型，还比接口更加细粒度，它还可以是一个基础类型如 "
+                },
+                {
+                  "text": "type name = 'string'",
+                  "code": true
+                },
+                {
+                  "text": " 。"
                 }
               ]
             }
@@ -10666,10 +11202,68 @@
               "fixed": true,
               "children": [
                 {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "动手实践"
+                    }
+                  ],
+                  "id": "Fo_6kON5h"
+                },
+                {
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": ""
+                      "text": "还记得之前我们那个 "
+                    },
+                    {
+                      "text": "src/TodoList.tsx",
+                      "code": true
+                    },
+                    {
+                      "text": " 中 "
+                    },
+                    {
+                      "text": "Action",
+                      "code": true
+                    },
+                    {
+                      "text": " 组件的 "
+                    },
+                    {
+                      "text": "onClick",
+                      "code": true
+                    },
+                    {
+                      "text": " 方法的参数 "
+                    },
+                    {
+                      "text": "key",
+                      "code": true
+                    },
+                    {
+                      "text": " 嘛？它是一个联合类型类型 "
+                    },
+                    {
+                      "text": "\"complete | delete\"",
+                      "code": true
+                    },
+                    {
+                      "text": " ，我们在多出使用到它，现在我们是硬编码写在了程序里，未来这个 "
+                    },
+                    {
+                      "text": "key",
+                      "code": true
+                    },
+                    {
+                      "text": " 可能会变化，所以我们需要换成类型别名来表达它们，打开 "
+                    },
+                    {
+                      "text": "src/TodoList.tsx",
+                      "code": true
+                    },
+                    {
+                      "text": " ，对其中的内容作出对应的修改如下："
                     }
                   ]
                 }
@@ -10712,7 +11306,64 @@
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": ""
+                      "text": "可以看到，我们定义了一个 "
+                    },
+                    {
+                      "text": "MenuKey",
+                      "code": true
+                    },
+                    {
+                      "text": " 类型别名，它表示原联合类型 "
+                    },
+                    {
+                      "text": "complete | delete",
+                      "code": true
+                    },
+                    {
+                      "text": " ，然后我们替换了组件中三处使用到这个联合类型的 "
+                    },
+                    {
+                      "text": "onClick",
+                      "code": true
+                    },
+                    {
+                      "text": " 函数的参数 "
+                    },
+                    {
+                      "text": "key",
+                      "code": true
+                    },
+                    {
+                      "text": " ，将其用 "
+                    },
+                    {
+                      "text": "MenuKey",
+                      "code": true
+                    },
+                    {
+                      "text": " 来注解。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "其次我们还删除了 "
+                    },
+                    {
+                      "text": "antd",
+                      "code": true
+                    },
+                    {
+                      "text": " 和 "
+                    },
+                    {
+                      "text": "@ant-design/icons",
+                      "code": true
+                    },
+                    {
+                      "text": " 里面的多余导出。"
                     }
                   ]
                 }
@@ -10739,7 +11390,7 @@
     {
       "commit": "ff925f8d8e6f44d9051c22ed7c54e9727d015c15",
       "id": "ar7R_mZZg",
-      "articleId": null,
+      "articleId": "_-ybXYu3c",
       "type": "step",
       "children": [
         {
@@ -10749,7 +11400,7 @@
           "fixed": true,
           "children": [
             {
-              "text": "类与泛型"
+              "text": "继续改进"
             }
           ]
         },
@@ -10762,124 +11413,6 @@
               "children": [
                 {
                   "text": ""
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "file": "src/App.tsx",
-          "display": true,
-          "commit": "ff925f8d8e6f44d9051c22ed7c54e9727d015c15",
-          "type": "file",
-          "children": [
-            {
-              "type": "explain",
-              "fixed": true,
-              "children": [
-                {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "diff-block",
-              "file": "src/App.tsx",
-              "commit": "ff925f8d8e6f44d9051c22ed7c54e9727d015c15",
-              "hiddenLines": [
-                [
-                  21,
-                  35
-                ],
-                [
-                  44,
-                  92
-                ]
-              ],
-              "children": [
-                {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "explain",
-              "fixed": true,
-              "children": [
-                {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "file": "src/TodoInput.tsx",
-          "display": true,
-          "commit": "ff925f8d8e6f44d9051c22ed7c54e9727d015c15",
-          "type": "file",
-          "children": [
-            {
-              "type": "explain",
-              "fixed": true,
-              "children": [
-                {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "diff-block",
-              "file": "src/TodoInput.tsx",
-              "commit": "ff925f8d8e6f44d9051c22ed7c54e9727d015c15",
-              "hiddenLines": [
-                [
-                  5,
-                  24
-                ]
-              ],
-              "children": [
-                {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "explain",
-              "fixed": true,
-              "children": [
-                {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
                 }
               ]
             }
@@ -10899,7 +11432,42 @@
                   "type": "paragraph",
                   "children": [
                     {
-                      "text": ""
+                      "text": "接着我们再来对 "
+                    },
+                    {
+                      "text": "TodoList",
+                      "code": true
+                    },
+                    {
+                      "text": " 做一点改变，导出一下我们刚刚定义的 "
+                    },
+                    {
+                      "text": "MenuKey",
+                      "code": true
+                    },
+                    {
+                      "text": " ，因为还有其他的地方使用到它，我们打开 "
+                    },
+                    {
+                      "text": "src/TodoList.tsx",
+                      "code": true
+                    },
+                    {
+                      "text": " 给 "
+                    },
+                    {
+                      "text": "MenuKey",
+                      "code": true
+                    },
+                    {
+                      "text": " 添加 "
+                    },
+                    {
+                      "text": "export",
+                      "code": true
+                    },
+                    {
+                      "text": " 前缀，导出我们的类型别名："
                     }
                   ]
                 }
@@ -10947,14 +11515,4473 @@
           ]
         },
         {
+          "file": "src/App.tsx",
+          "display": true,
+          "commit": "ff925f8d8e6f44d9051c22ed7c54e9727d015c15",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "接着我们在 "
+                    },
+                    {
+                      "text": "src/App.tsx",
+                      "code": true
+                    },
+                    {
+                      "text": " 里面导入我们的 "
+                    },
+                    {
+                      "text": "MenuKey",
+                      "code": true
+                    },
+                    {
+                      "text": " 类型别名，并替换对应的 "
+                    },
+                    {
+                      "text": "onClick",
+                      "code": true
+                    },
+                    {
+                      "text": " 的参数 "
+                    },
+                    {
+                      "text": "key",
+                      "code": true
+                    },
+                    {
+                      "text": " 的类型注解为 "
+                    },
+                    {
+                      "text": "MenuKey",
+                      "code": true
+                    },
+                    {
+                      "text": " ："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/App.tsx",
+              "commit": "ff925f8d8e6f44d9051c22ed7c54e9727d015c15",
+              "hiddenLines": [
+                [
+                  21,
+                  35
+                ],
+                [
+                  44,
+                  92
+                ]
+              ],
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "可以看到如上文件里面，我们还删除了一些 "
+                    },
+                    {
+                      "text": "antd",
+                      "code": true
+                    },
+                    {
+                      "text": " 里面不必要的包导入。"
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "小结"
+                    }
+                  ],
+                  "id": "3POCk0bPo"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "这一节我们学习了类型别名，它可以在一定程度上模拟接口（Interface），同时在类型上又可以达到比接口更加细粒度的效果，同时它又像 JS 中的变量，可以一处修改，多处生效，避免硬编码类型带来的一些代码上的重构和改动难题。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "类"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "在进行类的类型注解之前，我们首先先来了解一下类的组成："
+                    }
+                  ]
+                },
+                {
+                  "type": "bulleted-list",
+                  "children": [
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "构造函数"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "属性"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "实例属性"
+                        }
+                      ],
+                      "level": 1,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "静态属性"
+                        }
+                      ],
+                      "level": 1,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "方法"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "实例方法"
+                        }
+                      ],
+                      "level": 1,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "静态方法"
+                        }
+                      ],
+                      "level": 1,
+                      "parent": "bulleted-list"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "这是 ES6 里面类的一个组成，那么在 TS 里面我们该如何注解这些内容了？主要有如下组成："
+                    }
+                  ]
+                },
+                {
+                  "type": "bulleted-list",
+                  "children": [
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "注解构造函数"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "注解属性："
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "访问控制符： "
+                        },
+                        {
+                          "text": "public/protected/private ",
+                          "code": true
+                        },
+                        {
+                          "text": " "
+                        }
+                      ],
+                      "level": 1,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "修饰符："
+                        },
+                        {
+                          "text": "readonly",
+                          "code": true
+                        },
+                        {
+                          "text": " "
+                        }
+                      ],
+                      "level": 1,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "注解方法"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "访问控制符："
+                        },
+                        {
+                          "text": "public/protected/private",
+                          "code": true
+                        },
+                        {
+                          "text": " "
+                        }
+                      ],
+                      "level": 1,
+                      "parent": "bulleted-list"
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "简单注解"
+                    }
+                  ],
+                  "id": "UAQObAHUy"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "了解了类大致需要进行类型注解的部分，我们来具体体验一下这个注解过程。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "首先我们来看一个动物类："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "js",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class Animal {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  name;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  static isAnimal(a) {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    return a instanceof Animal;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  "
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  constructor(name) {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    this.name = name;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  move(distance) {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    console.log(`Animal moved ${distance}m.`);"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "我们可以看到上面这个类的四个部分："
+                    }
+                  ]
+                },
+                {
+                  "type": "bulleted-list",
+                  "children": [
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "实例属性 "
+                        },
+                        {
+                          "text": "name",
+                          "code": true
+                        },
+                        {
+                          "text": " ，\b它一般是 "
+                        },
+                        {
+                          "text": "string",
+                          "code": true
+                        },
+                        {
+                          "text": " 类型，静态属性注解同实例属性类似"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "静态方法 "
+                        },
+                        {
+                          "text": "isAnimal",
+                          "code": true
+                        },
+                        {
+                          "text": " ，按照之前讲解的注解的函数方式进行注解：1）注解参数 2）注解返回值"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "构造函数，注解参数"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "普通方法，按照之前讲解的注解的函数方式进行注解：1）注解参数 2）注解返回值"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "了解之后，我们来注解一下上面这个类："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class Animal {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  name: string;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  static isAnimal(a: Animal): boolean {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    return a instanceof Animal;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  constructor(name: string) {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    this.name = name;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  move(distance: number) {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    console.log(`Animal moved ${distance}m.`);"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "可以看到，经过注解后的类看起来也很熟悉，因为都是之前学过的，这里有个唯一的不同就是我们的静态方法 "
+                    },
+                    {
+                      "text": "isAnimal",
+                      "code": true
+                    },
+                    {
+                      "text": " ，它接收的参数 "
+                    },
+                    {
+                      "text": "a",
+                      "code": true
+                    },
+                    {
+                      "text": "  是 "
+                    },
+                    {
+                      "text": "Animal",
+                      "code": true
+                    },
+                    {
+                      "text": " 类本身来注解的，这里就涉及到两个知识："
+                    }
+                  ]
+                },
+                {
+                  "type": "bulleted-list",
+                  "children": [
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "类可以拿来进行类型注解"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    }
+                  ]
+                },
+                {
+                  "type": "bulleted-list",
+                  "children": [
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "类的实例都可以用类名来注解"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "这两个知识我们将在后面讲解构造函数时详细讲解。"
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "访问限定符"
+                    }
+                  ],
+                  "id": "Tpq-RS4Ic"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "除了简单注解，TS 还给类赋予了一些独特的内容，其中一个就是大多数静态语言都有的访问限定符："
+                    },
+                    {
+                      "text": "public",
+                      "code": true
+                    },
+                    {
+                      "text": " 、"
+                    },
+                    {
+                      "text": "protected",
+                      "code": true
+                    },
+                    {
+                      "text": " 和 "
+                    },
+                    {
+                      "text": "private",
+                      "code": true
+                    },
+                    {
+                      "text": " ，这些内容读者可能看起来很陌生了，我们接下来就来仔细讲一讲。"
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-four",
+                  "children": [
+                    {
+                      "text": "Public"
+                    }
+                  ],
+                  "id": "myloK7Eaq"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "public",
+                      "code": true
+                    },
+                    {
+                      "text": " 代表公共的，表示被此访问限定符修饰的属性，方法可以任何地方访问到：1）类中 2）类的实例对象 3）类的子类中 4）子类的实例对象 等，默认所有类的属性和方法都是 "
+                    },
+                    {
+                      "text": "public",
+                      "code": true
+                    },
+                    {
+                      "text": " 修饰的，比如我们拿上面那个 "
+                    },
+                    {
+                      "text": "Animal",
+                      "code": true
+                    },
+                    {
+                      "text": " 类来举例："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class Animal {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  public name: string;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  // ..."
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  public constructor(name: string) { // 函数体 }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  // ..."
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "} "
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "可以看到其实我们的 "
+                    },
+                    {
+                      "text": "name",
+                      "code": true
+                    },
+                    {
+                      "text": " 属性和构造函数等，他们默认都是 "
+                    },
+                    {
+                      "text": "public",
+                      "code": true
+                    },
+                    {
+                      "text": " 访问限定符，这样我们可以在任何地方访问到这些属性，下面我们就来看看如何访问这些属性。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "在类内部访问：",
+                      "bold": true
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class Animal {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  public name: string; ",
+                          "bold": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "",
+                          "bold": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  public constructor(name: string) { // 函数体 }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  move(distance: number) {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    console.log(`${this.name} moved ${distance}m.`);"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}",
+                          "bold": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "",
+                          "bold": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "const bird = new Animal('Tuture');"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "bird.move(520); // 打印 `Tuture moved 520m.`"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "可以看到，我们在类内部的 "
+                    },
+                    {
+                      "text": "move",
+                      "code": true
+                    },
+                    {
+                      "text": " 方法内访问了 public 类型的 "
+                    },
+                    {
+                      "text": "name",
+                      "code": true
+                    },
+                    {
+                      "text": " 属性。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "在类外部访问：",
+                      "bold": true
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "const animal = new Animal('bird');"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "console.log(animal.name) // 打印 bird"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "可以看到，上面我们通过类 "
+                    },
+                    {
+                      "text": "Animal",
+                      "code": true
+                    },
+                    {
+                      "text": " 的实例 "
+                    },
+                    {
+                      "text": "animal",
+                      "code": true
+                    },
+                    {
+                      "text": " 访问到了 "
+                    },
+                    {
+                      "text": "name",
+                      "code": true
+                    },
+                    {
+                      "text": " 属性。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "在子类中访问：",
+                      "bold": true
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class Bird extends Animal {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  fly() {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    console.log(`{this.name} can fly!`); "
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "const bird = new Bird('Tuture');"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "bird.fly() // 打印 `Tuture can fly!`"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "可以看到，上面我们在类 "
+                    },
+                    {
+                      "text": "Animal",
+                      "code": true
+                    },
+                    {
+                      "text": " 的子类 "
+                    },
+                    {
+                      "text": "Bird",
+                      "code": true
+                    },
+                    {
+                      "text": " 内部的 "
+                    },
+                    {
+                      "text": "fly",
+                      "code": true
+                    },
+                    {
+                      "text": " 方法访问到了 "
+                    },
+                    {
+                      "text": "name",
+                      "code": true
+                    },
+                    {
+                      "text": " 属性。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "在子类外部访问：",
+                      "bold": true
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class Bird extends Animal {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  fly() {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    console.log(`{this.name} can fly!`);"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "const bird = new Bird('Tuture');"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "console.log(bird.name) // 打印 Tuture"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "可以看到，上面我们在子类 "
+                    },
+                    {
+                      "text": "Bird",
+                      "code": true
+                    },
+                    {
+                      "text": " 的实例 "
+                    },
+                    {
+                      "text": "bird",
+                      "code": true
+                    },
+                    {
+                      "text": " 上面访问到了 "
+                    },
+                    {
+                      "text": "name",
+                      "code": true
+                    },
+                    {
+                      "text": " 属性。"
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-four",
+                  "children": [
+                    {
+                      "text": "Protected"
+                    }
+                  ],
+                  "id": "iNoqgEs5X"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "接下来我们来看一下第二个访问限定符 "
+                    },
+                    {
+                      "text": "protected",
+                      "code": true
+                    },
+                    {
+                      "text": " ，它的字面意思是 “受保护的”，比 "
+                    },
+                    {
+                      "text": "public",
+                      "code": true
+                    },
+                    {
+                      "text": " 的可访问的范围要小一些，它只能在类和子类中访问，不能被类的实例对象访问也不能被子类的实例对象访问，也就是上面 "
+                    },
+                    {
+                      "text": "public",
+                      "code": true
+                    },
+                    {
+                      "text": " 的三种访问里面，被 "
+                    },
+                    {
+                      "text": "protected",
+                      "code": true
+                    },
+                    {
+                      "text": " 访问限定符修饰的只能在第一类和第三类里面被访问到："
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "在类中访问：",
+                      "bold": true
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class Animal {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  protected name: string;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  public constructor(name: string) { // 函数体 }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  move(distance: number) {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    console.log(`${this.name} moved ${distance}m.`);"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "const bird = new Animal('Tuture');"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "bird.move(520); // 打印 `Tuture moved 520m.`"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "可以看到，我们在类内部的 "
+                    },
+                    {
+                      "text": "move",
+                      "code": true
+                    },
+                    {
+                      "text": " 方法内访问了 public 类型的 "
+                    },
+                    {
+                      "text": "name",
+                      "code": true
+                    },
+                    {
+                      "text": " 属性。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "在子类中访问：",
+                      "bold": true
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class Animal {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  protected name: string;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  constructor(name: string) {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    this.name = name"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class Bird extends Animal {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  fly() {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    console.log(`{this.name} can fly!`);"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "const bird = new Bird('Tuture');"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "bird.fly() // 打印 `Tuture can fly!`"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "可以看到，上面我们在类 "
+                    },
+                    {
+                      "text": "Animal",
+                      "code": true
+                    },
+                    {
+                      "text": " 的子类 "
+                    },
+                    {
+                      "text": "Bird",
+                      "code": true
+                    },
+                    {
+                      "text": " 内部的 "
+                    },
+                    {
+                      "text": "fly",
+                      "code": true
+                    },
+                    {
+                      "text": " 方法访问到了 "
+                    },
+                    {
+                      "text": "name",
+                      "code": true
+                    },
+                    {
+                      "text": " 属性。"
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-four",
+                  "children": [
+                    {
+                      "text": "Private"
+                    }
+                  ],
+                  "id": "jvDUXByMX"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "第三类访问限定符是 "
+                    },
+                    {
+                      "text": "private",
+                      "code": true
+                    },
+                    {
+                      "text": " ，它的字面意思是 “私有的”，也就是说它的可以访问访问是最小的，只能在类的内部访问到，其他地方都无法访问："
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "在类中访问：",
+                      "bold": true
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class Animal {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  private name: string;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  public constructor(name: string) { // 函数体 }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  move(distance: number) {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    console.log(`${this.name} moved ${distance}m.`);"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "const bird = new Animal('Tuture');"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "bird.move(520); // 打印 `Tuture moved 520m.`"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "可以看到，我们在类内部的 "
+                    },
+                    {
+                      "text": "move",
+                      "code": true
+                    },
+                    {
+                      "text": " 方法内访问了 public 类型的 "
+                    },
+                    {
+                      "text": "name",
+                      "code": true
+                    },
+                    {
+                      "text": " 属性。"
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "只读修饰符"
+                    }
+                  ],
+                  "id": "7odyMDEbX"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "就像我们之前学习的接口（"
+                    },
+                    {
+                      "text": "Interface",
+                      "code": true
+                    },
+                    {
+                      "text": " ）时可以用 "
+                    },
+                    {
+                      "text": "readonly",
+                      "code": true
+                    },
+                    {
+                      "text": " 修饰接口的属性一样，我们也可以用 "
+                    },
+                    {
+                      "text": "readonly",
+                      "code": true
+                    },
+                    {
+                      "text": " 修饰类的属性，比如我们动物的简介一旦确定就不会变了，我们可以这样来写："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class Animal {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  readonly brief: string = '动物是多细胞真核生命体中的一大类群，但是不同于微生物。';"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  // ...其他一样"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "除了属性，我们还可以用 "
+                    },
+                    {
+                      "text": "readonly",
+                      "code": true
+                    },
+                    {
+                      "text": " 来修饰类中方法的参数，比如我们在设置此动物的类型时，一般可以给一个默认的类型："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class Animal {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  type: string;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  "
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  setType(type: string, readonly defaultType = '哺乳动物') {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    this.type = type || defaultType;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "抽象类"
+                    }
+                  ],
+                  "id": "dwP5f46tA"
+                },
+                {
+                  "type": "heading-four",
+                  "children": [
+                    {
+                      "text": "抽象类与抽象方法"
+                    }
+                  ],
+                  "id": "vn7nPnC1U"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "TS 另外一个特性就是抽象类，什么是抽象类了？我们来看个例子："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "abstract class Animal {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  abstract makeSound(): void;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  move(): void {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    console.log(\"Roaming the earth...\");"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "可以看到抽象类就是在类之前加上 "
+                    },
+                    {
+                      "text": "abstract",
+                      "code": true
+                    },
+                    {
+                      "text": " 关键字，同时，它还不允许被实例化，也就是说如下的操作是不允许的："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "const bird = new Animal() // Error"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "除此之外，抽象类相比普通类还有一个额外的特性就是，可以在抽象类中定义抽象方法，就像我们上面的 "
+                    },
+                    {
+                      "text": "makeSound",
+                      "code": true
+                    },
+                    {
+                      "text": " 方法，在普通的方法定义之前加上 "
+                    },
+                    {
+                      "text": "abstract",
+                      "code": true
+                    },
+                    {
+                      "text": " 关键字，这个抽象方法类似于接口里面的方法的类型定义：1）注解参数和返回值 2）不给出具体的实现，如上面的 "
+                    },
+                    {
+                      "text": "move",
+                      "code": true
+                    },
+                    {
+                      "text": " 就是存在具体的实现，而 "
+                    },
+                    {
+                      "text": "makeSound",
+                      "code": true
+                    },
+                    {
+                      "text": " 不给出具体的实现。"
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-four",
+                  "children": [
+                    {
+                      "text": "抽象类的继承"
+                    }
+                  ],
+                  "id": "YYS6Cs5vj"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "抽象类只可以被继承，不可以被实例化，且抽象类的继承与普通类也存在不同，普通类的继承可以只是简单的继承，并不需要额外的操作："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class Animal {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  // Animal 相关的属性"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class Bird extends Animal {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  // 不需要做任何操作"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "但是如果一个类继承另外一个抽象类，那么它必须得实现抽象类中的抽象方法："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "abstract class Animal {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  abstract makeSound(): void;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  move(): void {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    console.log(\"Roaming the earth...\");"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class Bird extends Animal {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  makeSound(): void {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    console.log('Tuture tuture tuture.');"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "可以看到，上面我们定义了一个 "
+                    },
+                    {
+                      "text": "Bird",
+                      "code": true
+                    },
+                    {
+                      "text": " 类，它继承自 "
+                    },
+                    {
+                      "text": "Animal",
+                      "code": true
+                    },
+                    {
+                      "text": " 抽象类，它必须得实现 "
+                    },
+                    {
+                      "text": "makeSound",
+                      "code": true
+                    },
+                    {
+                      "text": " 抽象方法。"
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "构造函数"
+                    }
+                  ],
+                  "id": "hzoK7VWMV"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "通过上面的讲解我们基本了解了 TS 中的类相比 JS 额外增加的特性，主要是讲解了如何注解类的相关部分内容，接下来我们着重来谈一谈如何用类来注解其他内容。这里为什么类可以作为类型来注解其他内容了？原来在 TS 中声明一个类的同时会创建多个声明："
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "1）第一个声明是一个类型，这个类型是这个类实例对象类型，用于注解类的实例对象。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "2）第二个声明则是类的构造函数，我们在实例化类时，就是通过 "
+                    },
+                    {
+                      "text": "new",
+                      "code": true
+                    },
+                    {
+                      "text": " 关键字加上这个构造函数调用来生成一个类的实例。"
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-four",
+                  "children": [
+                    {
+                      "text": "声明注解类实例的类型"
+                    }
+                  ],
+                  "id": "HOunMrSug"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "可能上面的概念听得有点懵，我们拿之前那个例子来实际演示一下。"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class Animal {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  name: string;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  static isAnimal(a: Animal): boolean {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    return a instanceof Animal;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  constructor(name: string) {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    this.name = name;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  move(distance: number) {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    console.log(`Animal moved ${distance}m.`);"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "const bird: Animal = new Animal('Tuture');"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "这第一个声明的用于注解类实例对象的类型就是我们上面的 "
+                    },
+                    {
+                      "text": "Animal",
+                      "code": true
+                    },
+                    {
+                      "text": " ，当我们声明了一个 "
+                    },
+                    {
+                      "text": "Animal",
+                      "code": true
+                    },
+                    {
+                      "text": " 类之后，我们可以用这个 "
+                    },
+                    {
+                      "text": "Animal",
+                      "code": true
+                    },
+                    {
+                      "text": " 来注解 "
+                    },
+                    {
+                      "text": "Animal",
+                      "code": true
+                    },
+                    {
+                      "text": " 的实例如 "
+                    },
+                    {
+                      "text": "bird",
+                      "code": true
+                    },
+                    {
+                      "text": " 或者 "
+                    },
+                    {
+                      "text": "isAnimal",
+                      "code": true
+                    },
+                    {
+                      "text": " 方法中的 "
+                    },
+                    {
+                      "text": "a",
+                      "code": true
+                    },
+                    {
+                      "text": " 参数，当你理解了这个概念之后，你会发现 "
+                    },
+                    {
+                      "text": "isAnimal",
+                      "code": true
+                    },
+                    {
+                      "text": " 方法只允许传入为 "
+                    },
+                    {
+                      "text": "Animal",
+                      "code": true
+                    },
+                    {
+                      "text": " 实例的参数 "
+                    },
+                    {
+                      "text": "a",
+                      "code": true
+                    },
+                    {
+                      "text": " ，然后返回一个 "
+                    },
+                    {
+                      "text": "a instance Animal",
+                      "code": true
+                    },
+                    {
+                      "text": " 的布尔值，这是一个永远返回 "
+                    },
+                    {
+                      "text": "true",
+                      "code": true
+                    },
+                    {
+                      "text": " 的函数。"
+                    }
+                  ]
+                },
+                {
+                  "type": "note",
+                  "level": "info",
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "text": "这里这个声明的 "
+                        },
+                        {
+                          "text": "Animal",
+                          "code": true
+                        },
+                        {
+                          "text": " 类型不包括构造函数 "
+                        },
+                        {
+                          "text": "constructor",
+                          "code": true
+                        },
+                        {
+                          "text": " 以及类中的静态方法和静态属性，就像实例对象中是不包含类的构造函数、静态方法和静态属性一样。"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-four",
+                  "children": [
+                    {
+                      "text": "声明构造函数"
+                    }
+                  ],
+                  "id": "2J51QE3ZZ"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "了解了第一个声明，那么第二个声明又是什么意思了？其实就是上面我们执行 "
+                    },
+                    {
+                      "text": "new Animal('Tuture')",
+                      "code": true
+                    },
+                    {
+                      "text": " 来生成一个实例时，这里的 "
+                    },
+                    {
+                      "text": "Animal",
+                      "code": true
+                    },
+                    {
+                      "text": " 实际上就是一个构造函数，通过 "
+                    },
+                    {
+                      "text": "new Animal('Tuture')",
+                      "code": true
+                    },
+                    {
+                      "text": " 调用实际上就是调用我们类里面的 "
+                    },
+                    {
+                      "text": "constructor",
+                      "code": true
+                    },
+                    {
+                      "text": " 函数。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "那么有的同学看到这里就有疑问了，我们的 "
+                    },
+                    {
+                      "text": "Animal",
+                      "code": true
+                    },
+                    {
+                      "text": " 类型是用来注解类的实例的，那么类的构造函数 "
+                    },
+                    {
+                      "text": "Animal",
+                      "code": true
+                    },
+                    {
+                      "text": " 该如何注解了？我们来看这样一个例子："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "let AnimalCreator = Animal;"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "在这段代码中，我们将 "
+                    },
+                    {
+                      "text": "Animal",
+                      "code": true
+                    },
+                    {
+                      "text": "  构造函数赋值给 "
+                    },
+                    {
+                      "text": "AnimalCreator",
+                      "code": true
+                    },
+                    {
+                      "text": " ，那么我们如何注解这个 "
+                    },
+                    {
+                      "text": "AnimalCreator",
+                      "code": true
+                    },
+                    {
+                      "text": " 变量的类型了？当然 TS 具有自动类型推导机制，一般情况下我们是不需要注解这个变量的，但这里如果我们要注解它，那么该如何注解了？答案是可以借助 JS 原有的 "
+                    },
+                    {
+                      "text": "typeof",
+                      "code": true
+                    },
+                    {
+                      "text": " 方法："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "let AnimalCreator: typeof Animal = Animal;"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "我们通过 "
+                    },
+                    {
+                      "text": "typeof Animal",
+                      "code": true
+                    },
+                    {
+                      "text": " 获取构造函数 "
+                    },
+                    {
+                      "text": "Animal",
+                      "code": true
+                    },
+                    {
+                      "text": " 的类型，然后用此类型注解 "
+                    },
+                    {
+                      "text": "AnimalCreator",
+                      "code": true
+                    },
+                    {
+                      "text": " 。"
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "类与接口"
+                    }
+                  ],
+                  "id": "Igi80zH31"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "上面我们了解了类在声明的时候会声明一个类型，此类型可以用于注解类的实例，其实这个类型和我们之前学习的接口（"
+                    },
+                    {
+                      "text": "Interface",
+                      "code": true
+                    },
+                    {
+                      "text": " ）有异曲同工之妙，具体类与接口结合使用的时候有如下场景："
+                    }
+                  ]
+                },
+                {
+                  "type": "bulleted-list",
+                  "children": [
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "类实现接口"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    }
+                  ]
+                },
+                {
+                  "type": "bulleted-list",
+                  "children": [
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "接口继承类"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    }
+                  ]
+                },
+                {
+                  "type": "bulleted-list",
+                  "children": [
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "类作为接口使用"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-four",
+                  "children": [
+                    {
+                      "text": "类实现接口"
+                    }
+                  ],
+                  "id": "LqUloXue7"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "类一般只能继承类，但是多个不同的类如果共有一些属性或者方法时，就可以用接口来定义这些属性或者方法，然后多个类来继承这个接口，以达到属性和方法复用的目的，比如我们有两个类 "
+                    },
+                    {
+                      "text": "Door",
+                      "code": true
+                    },
+                    {
+                      "text": " （门）和 "
+                    },
+                    {
+                      "text": "Car",
+                      "code": true
+                    },
+                    {
+                      "text": " （车），他们都有 "
+                    },
+                    {
+                      "text": "Alarm",
+                      "code": true
+                    },
+                    {
+                      "text": " （报警器）的功能，但是他们又是不同的类，这个时候我们就可以定义一个 "
+                    },
+                    {
+                      "text": "Alarm",
+                      "code": true
+                    },
+                    {
+                      "text": " 接口："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "interface Alarm {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  alert(): void;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class Car implements Alarm {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  alert() {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    console.log('Car alarm');"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class Door implements Alarm {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  alert() {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    console.log('Door alarm');"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "此时的接口 "
+                    },
+                    {
+                      "text": "Alarm",
+                      "code": true
+                    },
+                    {
+                      "text": " 和我们之前定义的抽象类类似，接口中的方法 "
+                    },
+                    {
+                      "text": "alert",
+                      "code": true
+                    },
+                    {
+                      "text": " 类似抽象类中的抽象方法，一旦类实现 ("
+                    },
+                    {
+                      "text": "implements",
+                      "code": true
+                    },
+                    {
+                      "text": " ）了这个接口，那么也要实现这个接口中的方法，比如这里的 "
+                    },
+                    {
+                      "text": "alert",
+                      "code": true
+                    },
+                    {
+                      "text": " 。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "和类的单继承不一样，一个类可以实现多个接口，比如我们的车还可以开灯，那么我们可以定义一个 "
+                    },
+                    {
+                      "text": "Light",
+                      "code": true
+                    },
+                    {
+                      "text": " 接口，给车整上灯："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "interface Alarm {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  alert(): void;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "interface Light {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  lightOn(): void;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  lightOff(): void;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class Car implements Alarm, Light {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  alert() {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    console.log('Car alarm');"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  lightOn() {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    console.log('Car lighton');"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  lightOff() {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    console.log('Car lightoff');"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-four",
+                  "children": [
+                    {
+                      "text": "接口继承类"
+                    }
+                  ],
+                  "id": "-1Ev18PhY"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "接口之所以可以继承类是因为我们之前说到了类在声明的时候会声明一个类型，此类型用于注解类的实例。而接口继承类就是继承这个声明的类型，我们来看一个例子："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class Point {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  x: number;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  y: number;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "interface Point3d extends Point {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  z: number;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "let point3d: Point3d = { x: 1, y: 2, z: 3 };"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "可以看到，接口 "
+                    },
+                    {
+                      "text": "Point3d",
+                      "code": true
+                    },
+                    {
+                      "text": " 继承自类 "
+                    },
+                    {
+                      "text": "Point",
+                      "code": true
+                    },
+                    {
+                      "text": " ，获取了来自类的 "
+                    },
+                    {
+                      "text": "x",
+                      "code": true
+                    },
+                    {
+                      "text": " 和 "
+                    },
+                    {
+                      "text": "y",
+                      "code": true
+                    },
+                    {
+                      "text": " 属性，实际上接口继承的是声明 "
+                    },
+                    {
+                      "text": "Point",
+                      "code": true
+                    },
+                    {
+                      "text": " 类时同时声明的用于注解类实例的那个类型，而这个类型只包含类的实例属性和方法，所以接口继承类也是继承此类的实例属性和方法的类型。"
+                    }
+                  ]
+                },
+                {
+                  "type": "heading-four",
+                  "children": [
+                    {
+                      "text": "类作为接口使用"
+                    }
+                  ],
+                  "id": "MZqMnSlqK"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "类作为接口使用的场景主要在我们给 React 组件的 "
+                    },
+                    {
+                      "text": "Props",
+                      "code": true
+                    },
+                    {
+                      "text": " 和 "
+                    },
+                    {
+                      "text": "State",
+                      "code": true
+                    },
+                    {
+                      "text": " 进行类型注解的时候，我们既要给组件的 "
+                    },
+                    {
+                      "text": "Props",
+                      "code": true
+                    },
+                    {
+                      "text": " 进行类型注解，有时候还要设置组件的 "
+                    },
+                    {
+                      "text": "defaultProps",
+                      "code": true
+                    },
+                    {
+                      "text": " 值，这里的 "
+                    },
+                    {
+                      "text": "Props",
+                      "code": true
+                    },
+                    {
+                      "text": " 的注解和 "
+                    },
+                    {
+                      "text": "defaultProps",
+                      "code": true
+                    },
+                    {
+                      "text": " 值设置原本需要分开进行，我们来看一个例子："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "interface Props {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  value: string;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  onChange: (value: string) => void;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "interface State {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  content: string;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  user: string;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  date: string;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "const hardCodeDefaultProps = {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  value: 'tuture',"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  onChange(value: string) { console.log(`Hello ${value}`); }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class TodoInput extends React.Component<Props, State> {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  static defaultProps: Props = hardCodeDefaultProps;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  render() {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    return <div>Hello World</div>;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "可以看到，上面是一个标准的 React 类组件，我们通过 "
+                    },
+                    {
+                      "text": "React.Component<Props, State>",
+                      "code": true
+                    },
+                    {
+                      "text": " 的形式注解了这个类组件的 "
+                    },
+                    {
+                      "text": "Props",
+                      "code": true
+                    },
+                    {
+                      "text": " 和 "
+                    },
+                    {
+                      "text": "State",
+                      "code": true
+                    },
+                    {
+                      "text": " ，通过声明了两个接口来进行注解，这里 "
+                    },
+                    {
+                      "text": "React.Component<Props, State>",
+                      "code": true
+                    },
+                    {
+                      "text": " 就是泛型，现在不懂没关系，我们将在下一节讲解泛型，这里可以理解泛型类似 JS 函数，这里的 "
+                    },
+                    {
+                      "text": "<>",
+                      "code": true
+                    },
+                    {
+                      "text": " 类似函数的 "
+                    },
+                    {
+                      "text": "()",
+                      "code": true
+                    },
+                    {
+                      "text": " ，然后可以接收参数，这里我们传入了两个参数分别注解类的 "
+                    },
+                    {
+                      "text": "Props",
+                      "code": true
+                    },
+                    {
+                      "text": " 和 "
+                    },
+                    {
+                      "text": "State",
+                      "code": true
+                    },
+                    {
+                      "text": " 。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "我们还注意到，我们声明了这个类的 "
+                    },
+                    {
+                      "text": "defaultProps",
+                      "code": true
+                    },
+                    {
+                      "text": " ，然后定义了一个 "
+                    },
+                    {
+                      "text": "hardCodeDefaultProps",
+                      "code": true
+                    },
+                    {
+                      "text": " 来初始化这个 "
+                    },
+                    {
+                      "text": "defaultProps",
+                      "code": true
+                    },
+                    {
+                      "text": " 。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "这就是常见的 React 类组件的类型注解和默认参数初始化的场景，但是当我们学了类之后，我们可以简化一下上面的类组件的类型注解和默认参数初始化的操作："
+                    }
+                  ]
+                },
+                {
+                  "type": "code-block",
+                  "lang": "ts",
+                  "children": [
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class Props {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  value: string = 'tuture';"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  onChange(value: string) {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    console.log('Hello Tuture');"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "interface State {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  content: string;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  user: string;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  date: string;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "class TodoInput extends React.Component<Props, State> {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  static defaultProps: Props = new Props();"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  render() {"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "    return <div>Hello World</div>;"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "  }"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "code-line",
+                      "children": [
+                        {
+                          "text": "}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "可以看到，上面我们将接口 "
+                    },
+                    {
+                      "text": "Props",
+                      "code": true
+                    },
+                    {
+                      "text": " 换成了类 "
+                    },
+                    {
+                      "text": "Props",
+                      "code": true
+                    },
+                    {
+                      "text": " ，这带来了一些改变，就是类里面可以给出属性和方法的具体实现，而我们又知道声明类 "
+                    },
+                    {
+                      "text": "Props",
+                      "code": true
+                    },
+                    {
+                      "text": " 的时候会同时声明一个类型 "
+                    },
+                    {
+                      "text": "Props",
+                      "code": true
+                    },
+                    {
+                      "text": " ，我们用这个类型来注解组件的 "
+                    },
+                    {
+                      "text": "Props",
+                      "code": true
+                    },
+                    {
+                      "text": " ，然后注解 "
+                    },
+                    {
+                      "text": "defaultProps",
+                      "code": true
+                    },
+                    {
+                      "text": " ，然后我们用声明类时声明的第二个内容："
+                    },
+                    {
+                      "text": "Props",
+                      "code": true
+                    },
+                    {
+                      "text": " 构造函数来创建一个 "
+                    },
+                    {
+                      "text": "Props",
+                      "code": true
+                    },
+                    {
+                      "text": " 类型的实例对象并赋值给 "
+                    },
+                    {
+                      "text": "defaultProps",
+                      "code": true
+                    },
+                    {
+                      "text": " ，细心的同学可以把这段代码复制到我们之前的 "
+                    },
+                    {
+                      "text": "src/TodoInput.tsx",
+                      "code": true
+                    },
+                    {
+                      "text": " 文件里，编辑器应该会显示正常，我们成功利用了类的特性来帮助我们的 React 组件简化代码，提高了代码的逻辑性。"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/TodoInput.tsx",
+          "display": true,
+          "commit": "ff925f8d8e6f44d9051c22ed7c54e9727d015c15",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "heading-three",
+                  "children": [
+                    {
+                      "text": "动手实践"
+                    }
+                  ],
+                  "id": "r9eT8Br7s"
+                },
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "学习了类的内容之后，我们马上将学到的知识运用在我们的待办事项小应用里面，打开 "
+                    },
+                    {
+                      "text": "src/TodoInput.tsx",
+                      "code": true
+                    },
+                    {
+                      "text": " ，对其中的内容作出对应的修改如下："
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/TodoInput.tsx",
+              "commit": "ff925f8d8e6f44d9051c22ed7c54e9727d015c15",
+              "hiddenLines": [
+                [
+                  5,
+                  24
+                ]
+              ],
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "可以看到上面的改动主要有如下几处："
+                    }
+                  ]
+                },
+                {
+                  "type": "bulleted-list",
+                  "children": [
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "我们将之前的函数式组件改成了类组件，然后定义了一个  "
+                        },
+                        {
+                          "text": "TodoInputState",
+                          "code": true
+                        },
+                        {
+                          "text": " 接口，加上之前的 "
+                        },
+                        {
+                          "text": "TodoInputProps",
+                          "code": true
+                        },
+                        {
+                          "text": " ，一起以泛型的形式注解类的 "
+                        },
+                        {
+                          "text": "Props",
+                          "code": true
+                        },
+                        {
+                          "text": " 和 "
+                        },
+                        {
+                          "text": "State",
+                          "code": true
+                        },
+                        {
+                          "text": " ，接着我们在类中加上实例属性 "
+                        },
+                        {
+                          "text": "state",
+                          "code": true
+                        },
+                        {
+                          "text": " 。"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "接着我们将 "
+                        },
+                        {
+                          "text": "triggerChange",
+                          "code": true
+                        },
+                        {
+                          "text": " 、"
+                        },
+                        {
+                          "text": "onContentChange",
+                          "code": true
+                        },
+                        {
+                          "text": " 、"
+                        },
+                        {
+                          "text": "onUserChange",
+                          "code": true
+                        },
+                        {
+                          "text": " 、"
+                        },
+                        {
+                          "text": "onDateOk",
+                          "code": true
+                        },
+                        {
+                          "text": " 四个方法改成了类的私有方法。"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "最后我们加上了类组件独有的 "
+                        },
+                        {
+                          "text": "render",
+                          "code": true
+                        },
+                        {
+                          "text": " 方法，它是一个 "
+                        },
+                        {
+                          "text": "public",
+                          "code": true
+                        },
+                        {
+                          "text": " 类型的方法。"
+                        }
+                      ],
+                      "level": 0,
+                      "parent": "bulleted-list"
+                    }
+                  ]
+                },
+                {
+                  "type": "note",
+                  "level": "info",
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "text": "这里我们在改造 "
+                        },
+                        {
+                          "text": "onContentChange",
+                          "code": true
+                        },
+                        {
+                          "text": " 的时候，用 "
+                        },
+                        {
+                          "text": "React.ChangeEvent<HTMLInputElement>",
+                          "code": true
+                        },
+                        {
+                          "text": " 的方式注解了方法参数的 "
+                        },
+                        {
+                          "text": "e",
+                          "code": true
+                        },
+                        {
+                          "text": " ，这里也是泛型的一部分，我们将在下一节着重讲解，这里可以理解为一个 "
+                        },
+                        {
+                          "text": "HTMLInputElement",
+                          "code": true
+                        },
+                        {
+                          "text": "类型的的 "
+                        },
+                        {
+                          "text": "React.ChangeEvent",
+                          "code": true
+                        },
+                        {
+                          "text": " 。"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "text": "那么有同学会有疑问了，这里我们是如何知道该这样注解了？实际上，我们看到 "
+                        },
+                        {
+                          "text": "render",
+                          "code": true
+                        },
+                        {
+                          "text": " 方法里的 "
+                        },
+                        {
+                          "text": "Input",
+                          "code": true
+                        },
+                        {
+                          "text": " 组件的 "
+                        },
+                        {
+                          "text": "onChange",
+                          "code": true
+                        },
+                        {
+                          "text": " 方法，当我们把鼠标放上去的时候，编辑器会给出如下提示："
+                        }
+                      ]
+                    },
+                    {
+                      "type": "image",
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ],
+                      "url": "https://imgkr.cn-bj.ufileos.com/100f79cf-7b54-4950-984b-11eb4cc24b06.png"
+                    },
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "text": "可以看到，编辑器直接提醒我们该怎么注解 "
+                        },
+                        {
+                          "text": "event",
+                          "code": true
+                        },
+                        {
+                          "text": " 参数了，果然优秀的编辑器可以提高生产力啊！"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
           "type": "explain",
           "fixed": true,
           "children": [
             {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "小结"
+                }
+              ],
+              "id": "l3Xt_aiQH"
+            },
+            {
               "type": "paragraph",
               "children": [
                 {
-                  "text": ""
+                  "text": "在这一节中，我们学习了 TS 的类，主要学习了如下知识："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "parent": "bulleted-list",
+                  "children": [
+                    {
+                      "text": "了解一个类有哪些组成部分，以及如何注解这些组成部分"
+                    }
+                  ],
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "parent": "bulleted-list",
+                  "children": [
+                    {
+                      "text": "了解了 TS 类独有的访问限定符："
+                    },
+                    {
+                      "text": "public",
+                      "code": true
+                    },
+                    {
+                      "text": " 、"
+                    },
+                    {
+                      "text": "protected",
+                      "code": true
+                    },
+                    {
+                      "text": " 和 "
+                    },
+                    {
+                      "text": "private",
+                      "code": true
+                    },
+                    {
+                      "text": " "
+                    }
+                  ],
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "parent": "bulleted-list",
+                  "children": [
+                    {
+                      "text": "了解了 TS 类就像接口一样，它的属性或者方法的参数也可以用 "
+                    },
+                    {
+                      "text": "readonly",
+                      "code": true
+                    },
+                    {
+                      "text": " 来修饰"
+                    }
+                  ],
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "parent": "bulleted-list",
+                  "children": [
+                    {
+                      "text": "学习了 TS 的抽象类，知道了抽象类的抽象方法以及抽象类不可以直接被实例化，只可以被子类继承，且继承自抽象类的子类需要实现抽象类的抽象方法，即给出具体的同名方法的方法体"
+                    }
+                  ],
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "parent": "bulleted-list",
+                  "children": [
+                    {
+                      "text": "接着，我们学习了 TS 类的独特性，同时声明了两个内容 1）一个用于注解类实例的类型 2）一个用于生成类实例的构造方法"
+                    }
+                  ],
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "parent": "bulleted-list",
+                  "children": [
+                    {
+                      "text": "最后，我们学习了类和接口的一些互相操作的场景 1）多个类实现同一个接口来复用接口的属性或者方法 2）一个类实现多个接口 3）接口也可以继承类，只不过是继承类声明时同时声明的同名类型 4）类作为接口使用，通过进一步应用类声明的两个内容来简化 React 组件代码，提高代码的逻辑性和可复用性。"
+                    }
+                  ],
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在这一节最后，我们稍微引申了一下泛型，说它类似 JS 里面的函数，可以接收类型参数，在下一节中，我们将重点讲解泛型的知识和应用，敬请期待！"
                 }
               ]
             }
