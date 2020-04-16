@@ -45,7 +45,8 @@
         "TypeScript",
         "React"
       ],
-      "cover": ""
+      "description": "学习了注解函数，又了解了类型运算如联合类型和交叉类型，接下来我们来了解一些 TS 中独有的类型别名，它类似 JS 变量，是类型变量，接着我们还会学习 TS 中内容非常庞杂的内容之一：类，了解 TS 中类的独有特性，以及如何注解类，甚至用类去注解其他内容。",
+      "cover": "https://imgkr.cn-bj.ufileos.com/850cbbd7-9826-4d7d-a69e-3c1b498fee80.png"
     }
   ],
   "steps": [
@@ -105,12 +106,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -156,12 +152,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -207,12 +198,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -258,12 +244,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -309,12 +290,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -360,12 +336,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -411,12 +382,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -462,12 +428,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -513,12 +474,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -564,12 +520,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -615,12 +566,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -666,12 +612,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -717,12 +658,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -768,12 +704,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -819,12 +750,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -870,12 +796,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -921,12 +842,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -972,12 +888,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -1023,12 +934,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -1074,12 +980,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -1329,8 +1230,7 @@
                 }
               ]
             }
-          ],
-          "flag": "step_start"
+          ]
         },
         {
           "file": "package.json",
@@ -1795,8 +1695,7 @@
                     }
                   ]
                 }
-              ],
-              "flag": "file_start"
+              ]
             },
             {
               "type": "diff-block",
@@ -1814,12 +1713,7 @@
               ],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -1835,8 +1729,7 @@
                     }
                   ]
                 }
-              ],
-              "flag": "file_end"
+              ]
             }
           ]
         },
@@ -1882,8 +1775,7 @@
                   ],
                   "id": "7Gsv9BxO"
                 }
-              ],
-              "flag": "file_start"
+              ]
             },
             {
               "type": "diff-block",
@@ -1892,12 +1784,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -1949,8 +1836,7 @@
                     }
                   ]
                 }
-              ],
-              "flag": "file_end"
+              ]
             }
           ]
         },
@@ -1998,8 +1884,7 @@
                   ],
                   "id": "3tYKzGsO"
                 }
-              ],
-              "flag": "file_start"
+              ]
             },
             {
               "type": "diff-block",
@@ -2013,12 +1898,7 @@
               ],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -2034,8 +1914,7 @@
                     }
                   ]
                 }
-              ],
-              "flag": "file_end"
+              ]
             }
           ]
         },
@@ -2096,8 +1975,7 @@
                   ],
                   "id": "ruXvaDpP"
                 }
-              ],
-              "flag": "file_start"
+              ]
             },
             {
               "type": "diff-block",
@@ -2106,12 +1984,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -2186,8 +2059,7 @@
                   "level": 0,
                   "parent": "bulleted-list"
                 }
-              ],
-              "flag": "file_end"
+              ]
             }
           ]
         },
@@ -2217,12 +2089,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -2461,12 +2328,7 @@
               ],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -2588,8 +2450,7 @@
                 }
               ]
             }
-          ],
-          "flag": "step_end"
+          ]
         }
       ]
     },
@@ -2810,12 +2671,7 @@
               ],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -4466,12 +4322,7 @@
               ],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -6029,12 +5880,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -6375,12 +6221,7 @@
               ],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -6443,12 +6284,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -6528,12 +6364,7 @@
               ],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -7942,12 +7773,7 @@
               ],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -8172,12 +7998,7 @@
               "hiddenLines": [],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -8359,12 +8180,7 @@
               ],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -10187,12 +10003,7 @@
               ],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -10531,12 +10342,7 @@
               ],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -10772,7 +10578,7 @@
                   "code": true
                 },
                 {
-                  "text": " 函数类型的联合类型，有过一定开发经验的同学可能会发掘，这样写可能很影响原代码的可读性，而且这个 "
+                  "text": " 函数类型的联合类型，有过一定开发经验的同学可能会发觉，这样写可能很影响原代码的可读性，而且这个 "
                 },
                 {
                   "text": "n",
@@ -11249,7 +11055,7 @@
                       "code": true
                     },
                     {
-                      "text": " ，我们在多出使用到它，现在我们是硬编码写在了程序里，未来这个 "
+                      "text": " ，我们在多出处用到它，现在我们是硬编码写在了程序里，未来这个 "
                     },
                     {
                       "text": "key",
@@ -11277,24 +11083,11 @@
                 [
                   18,
                   33
-                ],
-                [
-                  42,
-                  54
-                ],
-                [
-                  65,
-                  90
                 ]
               ],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -11483,18 +11276,13 @@
                   3
                 ],
                 [
-                  12,
+                  14,
                   83
                 ]
               ],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -11576,21 +11364,24 @@
               "hiddenLines": [
                 [
                   21,
+                  24
+                ],
+                [
+                  28,
                   35
                 ],
                 [
-                  44,
-                  92
+                  56,
+                  56
+                ],
+                [
+                  59,
+                  87
                 ]
               ],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
@@ -11756,7 +11547,7 @@
                       "type": "list-item",
                       "children": [
                         {
-                          "text": "访问控制符： "
+                          "text": "访问限定符： "
                         },
                         {
                           "text": "public/protected/private ",
@@ -11800,7 +11591,7 @@
                       "type": "list-item",
                       "children": [
                         {
-                          "text": "访问控制符："
+                          "text": "访问限定符："
                         },
                         {
                           "text": "public/protected/private",
@@ -12636,7 +12427,7 @@
                       "type": "code-line",
                       "children": [
                         {
-                          "text": "    console.log(`{this.name} can fly!`); "
+                          "text": "    console.log(`${this.name} can fly!`); "
                         }
                       ]
                     },
@@ -12751,7 +12542,7 @@
                       "type": "code-line",
                       "children": [
                         {
-                          "text": "    console.log(`{this.name} can fly!`);"
+                          "text": "    console.log(`${this.name} can fly!`);"
                         }
                       ]
                     },
@@ -13117,7 +12908,7 @@
                       "type": "code-line",
                       "children": [
                         {
-                          "text": "    console.log(`{this.name} can fly!`);"
+                          "text": "    console.log(`${this.name} can fly!`);"
                         }
                       ]
                     },
@@ -15619,17 +15410,12 @@
               "hiddenLines": [
                 [
                   5,
-                  24
+                  21
                 ]
               ],
               "children": [
                 {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "text": ""
-                    }
-                  ]
+                  "text": ""
                 }
               ]
             },
