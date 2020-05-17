@@ -81,7 +81,7 @@
         "进阶",
         "TypeScript"
       ],
-      "cover": "",
+      "cover": "https://imgkr.cn-bj.ufileos.com/db716036-e13f-4c98-9661-f9fa9cb3602a.png",
       "description": "在之前的文章中，我们了解了 TypeScript 主要分为 JS 语言侧和类型侧两个部分。\n\n在介绍了类型侧的一些基础知识，我们用这些学到的基础知识去注解对应的 JS 内容，将 JS 内容如变量、函数、类等类型化，这样确保写出的代码非常利于团队协作，且能快速排错。\n\n在了解了之前几篇文章里面的知识之后，你应该可以使用 TypeScript 进行正常的项目开发了。"
     }
   ],
