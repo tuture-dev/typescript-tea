@@ -67,6 +67,22 @@
         "进阶",
         "TypeScript"
       ]
+    },
+    {
+      "id": "05f37363",
+      "created": "2020-05-17T00:32:23.234Z",
+      "name": "类型即正义：TypeScript 从入门到实践（四）：你不知道的泛型",
+      "topics": [
+        "React",
+        "TypeScript"
+      ],
+      "categories": [
+        "前端",
+        "进阶",
+        "TypeScript"
+      ],
+      "cover": "",
+      "description": "在之前的文章中，我们了解了 TypeScript 主要分为 JS 语言侧和类型侧两个部分。\n\n在介绍了类型侧的一些基础知识，我们用这些学到的基础知识去注解对应的 JS 内容，将 JS 内容如变量、函数、类等类型化，这样确保写出的代码非常利于团队协作，且能快速排错。\n\n在了解了之前几篇文章里面的知识之后，你应该可以使用 TypeScript 进行正常的项目开发了。"
     }
   ],
   "category": [
@@ -15804,6 +15820,4291 @@
               "children": [
                 {
                   "text": "在这一节最后，我们稍微引申了一下泛型，说它类似 JS 里面的函数，可以接收类型参数，在下一节中，我们将重点讲解泛型的知识和应用，敬请期待！"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "commit": "8e1cda79eafa56b74f5823cd5b9ff61367c88616",
+      "id": "17faac30",
+      "articleId": "05f37363",
+      "type": "step",
+      "children": [
+        {
+          "type": "heading-two",
+          "commit": "8e1cda79eafa56b74f5823cd5b9ff61367c88616",
+          "id": "324ac206",
+          "fixed": true,
+          "children": [
+            {
+              "text": "你不知道的泛型"
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "为什么要学泛型？因为它可以帮助你 “面向编辑器代码提示编程” ：）"
+                }
+              ]
+            },
+            {
+              "type": "heading-two",
+              "children": [
+                {
+                  "text": "学习准备"
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "VSCode 编辑器，你可以访问这个网站来下载 "
+                    },
+                    {
+                      "link": true,
+                      "url": "https://code.visualstudio.com/",
+                      "text": "https://code.visualstudio.com/"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "安装 Node 环境，本系列教程"
+                    },
+                    {
+                      "link": true,
+                      "url": "https://tuture.co/2020/04/06/cea18bc/",
+                      "text": "第一篇"
+                    },
+                    {
+                      "text": "已经讲解"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "配置 TypeScript 环境"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "创建一个 node 项目："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "mkdir ts-study"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "cd ts-study && npm init -y"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "配置 TypeScript 环境："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "bash",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "npm install typescript # 安装 TypeScript"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "npx tsc --init # 生成 TypeScript 配置文件"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "修改 "
+                },
+                {
+                  "code": true,
+                  "text": "tsconfig.json"
+                },
+                {
+                  "text": " 文件，设置对应的 TS 编译器需要编译的文件如下："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "json",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "{"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \"compilerOptions\": {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "    \"outDir\": \"./dist\" // 设置编译输出的文件夹"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  },"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \"include\": ["
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "    // 需要编译的ts文件一个*表示文件匹配**表示忽略文件的深度问题"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "    \"./src/**/*.ts\""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  ],"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \"exclude\": [\"node_modules\", \"dist\", \"**/*.test.ts\"] // 排除不需要编译的文件夹"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "配置 TypeScript 编译执行脚本，使用 VSCode 编辑器打开 "
+                },
+                {
+                  "code": true,
+                  "text": "ts-study"
+                },
+                {
+                  "text": " 项目，然后修改 "
+                },
+                {
+                  "code": true,
+                  "text": "package.json"
+                },
+                {
+                  "text": " 的 "
+                },
+                {
+                  "code": true,
+                  "text": "scripts"
+                },
+                {
+                  "text": " 字段如下："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "json",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "{"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \"name\": \"ts-study\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \"version\": \"1.0.0\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \"description\": \"\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \"main\": \"index.js\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \"scripts\": {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "    \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "    \"build\": \"tsc\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "    \"build:w\": \"tsc -w\""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  },"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \"author\": \"pftom <1043269994@qq.com>\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \"license\": \"MIT\","
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  \"dependencies\": {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "    \"typescript\": \"^3.7.4\""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  }"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "接着在项目根目录新建 "
+                },
+                {
+                  "code": true,
+                  "text": "src"
+                },
+                {
+                  "text": " 文件夹，并在里面新建  "
+                },
+                {
+                  "code": true,
+                  "text": "index.ts"
+                },
+                {
+                  "text": "  文件，接着在项目根目录下的命令行执行 "
+                },
+                {
+                  "code": true,
+                  "text": "npm run build:w"
+                },
+                {
+                  "text": " 开始监听 "
+                },
+                {
+                  "code": true,
+                  "text": "index.ts"
+                },
+                {
+                  "text": " 文件的修改。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "经过上面的操作，你的 VSCode 编辑器应该是如下样子："
+                },
+                {
+                  "type": "image",
+                  "url": "https://cdn.nlark.com/yuque/0/2020/png/123790/1589363620769-f2e6b23a-bb93-4057-8e0a-bb2d7c8c4a68.png#align=left&display=inline&height=851&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1702&originWidth=2254&size=262418&status=done&style=none&width=1127",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "text": "其中 TERMINAL 终端表示正在监听文件修改并编译中，当前文件的编译结果没有错误，因为我们的 "
+                },
+                {
+                  "code": true,
+                  "text": "src/index.ts"
+                },
+                {
+                  "text": " 里面还没有写任何内容。一切准备就绪，开始 “面向编辑器代码提示编程”！✌️"
+                }
+              ]
+            },
+            {
+              "type": "heading-two",
+              "children": [
+                {
+                  "text": "从一个简单的例子说起"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "先不扯那么多泛型的概念，我们先来看一个简单的例子，在 "
+                },
+                {
+                  "code": true,
+                  "text": "src/index.ts"
+                },
+                {
+                  "text": " 里面编写如下代码："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "function getTutureTutorialsInfo(info) {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  return info;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们编写了一个获取图雀教程信息的函数，接收 "
+                },
+                {
+                  "code": true,
+                  "text": "info"
+                },
+                {
+                  "text": " 输入，然后返回 "
+                },
+                {
+                  "code": true,
+                  "text": "info"
+                },
+                {
+                  "text": " ，即明确参数类型和返回类型一样。现在这个还只是一个 JavaScript 函数，我们来给它进行类型注解。"
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "写一个 Low 一点的 TS 函数"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "… 这怎么注解？此时正在阅读的你可能会冒出这个疑问。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "对的，这怎么注解？我们面临着如下几个难题："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "code": true,
+                      "text": "info"
+                    },
+                    {
+                      "text": " 类型未知，它可能是 "
+                    },
+                    {
+                      "code": true,
+                      "text": "string"
+                    },
+                    {
+                      "text": " 、 "
+                    },
+                    {
+                      "code": true,
+                      "text": "number"
+                    },
+                    {
+                      "text": " 或者其他类型"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "在 "
+                    },
+                    {
+                      "code": true,
+                      "text": "info"
+                    },
+                    {
+                      "text": " 类型未知的情况下，我们还要注解返回值类型，并且此返回值类型要和 "
+                    },
+                    {
+                      "code": true,
+                      "text": "info"
+                    },
+                    {
+                      "text": " 类型一致，所以我们的返回值类型这里也未知。"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "相信有同学会尝试这样去解决："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "function getTutureTutorialsInfo(info: any): any {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  return info;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "很好！你成功写了第一个 \"AnyScript` 函数，这个函数和 JS 函数无异，根本无法用到 TS 的强大类型补全机制，不信你可以在你的 VSCode 编辑器里面尝试加入如下代码："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "function getTutureTutorialsInfo(info: any): any {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  console.log(info.length);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  return info;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "可以看到我们添加了一个打印语句 "
+                },
+                {
+                  "code": true,
+                  "text": "console.log"
+                },
+                {
+                  "text": " ，如果你没有 Copy 上面的代码，而是选择手敲的话，你会发现输入 "
+                },
+                {
+                  "code": true,
+                  "text": "info."
+                },
+                {
+                  "text": " 的时候，编辑器里面没有提示补全 "
+                },
+                {
+                  "code": true,
+                  "text": "length"
+                },
+                {
+                  "text": " 属性，因为给 "
+                },
+                {
+                  "code": true,
+                  "text": "info"
+                },
+                {
+                  "text": " 注解了 "
+                },
+                {
+                  "code": true,
+                  "text": "any"
+                },
+                {
+                  "text": " 类型，TS 编译器无法推断此 "
+                },
+                {
+                  "code": true,
+                  "text": "info"
+                },
+                {
+                  "text": " 是什么类型，所以也没有对应的补全，没有补全的 TypeScript 代码是没有生命的😿"
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "类型的函数？"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "那么思考一下，这里该如何做类型注解了？相信你已经有答案了，这就是我们这一节要引出的重点：“泛型” ，我将它称之为 “类型的函数”，对应 JS 的函数一样，声明一个 “类型变量”，然后在类型函数代码块里面可以使用这个 “类型变量”。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "一个 JS 函数如下："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "javascript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "function jsFunc(varOne) {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  const res = varOne + 1;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  return res;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "可以看到一个 JS 函数，有一个 "
+                },
+                {
+                  "code": true,
+                  "text": "varOne"
+                },
+                {
+                  "text": " 参数，这个参数变量可以在函数体中使用。接下来我们来看一下为什么我把泛型称之为 “类型的函数”，修改我们 "
+                },
+                {
+                  "code": true,
+                  "text": "src/index.ts"
+                },
+                {
+                  "text": " 里面的内容："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "function getTutureTutorialsInfo<T>(info: T): T {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  console.log(info.length);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  return info;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "可以看到我们给 "
+                },
+                {
+                  "code": true,
+                  "text": "getTutureTutorialsInfo"
+                },
+                {
+                  "text": " 后面加上 "
+                },
+                {
+                  "code": true,
+                  "text": "<T>"
+                },
+                {
+                  "text": " 这个类似我们上面那个 JS 函数的 "
+                },
+                {
+                  "code": true,
+                  "text": "(varOne)"
+                },
+                {
+                  "text": " ，然后我们在原 JS 函数参数和返回值中使用了这个 “类型变量”  "
+                },
+                {
+                  "code": true,
+                  "text": "T"
+                },
+                {
+                  "text": " ： "
+                },
+                {
+                  "code": true,
+                  "text": "(info: T): T"
+                },
+                {
+                  "text": " ，这样我们就解决了上面的两个难题："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "我们定义了 T 这样一个 “类型变量”，并用它来注解我们的 JS 函数参数 "
+                    },
+                    {
+                      "code": true,
+                      "text": "info"
+                    },
+                    {
+                      "text": " 和其返回值，T 既然是一个 “类型变量”，那么接收此 “类型变量” 的 “类型的函数” - 泛型，在之后被调用的时候，我们可以根据需求指定传入的类型，比如 "
+                    },
+                    {
+                      "code": true,
+                      "text": "string"
+                    },
+                    {
+                      "text": " 、 "
+                    },
+                    {
+                      "code": true,
+                      "text": "number"
+                    },
+                    {
+                      "text": " 等，这就确保了调用函数的用户来决定 "
+                    },
+                    {
+                      "code": true,
+                      "text": "info"
+                    },
+                    {
+                      "text": " 的类型 "
+                    },
+                    {
+                      "code": true,
+                      "text": "T"
+                    },
+                    {
+                      "text": " ，这样参数的类型就确定了。"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "参数和返回值类型都使用了 T 来做类型标注，所以参数值和返回值类型一致。"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "但是稍等，上面的代码在编辑器中报错了："
+                },
+                {
+                  "type": "image",
+                  "url": "https://cdn.nlark.com/yuque/0/2020/png/123790/1589373760564-73177427-7787-4745-afa5-9597ef8bf081.png#align=left&display=inline&height=178&margin=%5Bobject%20Object%5D&name=image.png&originHeight=356&originWidth=1410&size=58466&status=done&style=none&width=705",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "text": "因为我们将这个函数泛型化了，明确了泛型变量 T 是一个明确类型，所以我们之前的 "
+                },
+                {
+                  "code": true,
+                  "text": "info.length"
+                },
+                {
+                  "text": " 会报错，当然这里有同学会问了，我要是这里 T 在之后泛型 （类型的函数）调用的时候传入的是 "
+                },
+                {
+                  "code": true,
+                  "text": "string"
+                },
+                {
+                  "text": " 类型，那不是就有 "
+                },
+                {
+                  "code": true,
+                  "text": "length"
+                },
+                {
+                  "text": " 属性了嘛，很遗憾，因为 T 还可能是 "
+                },
+                {
+                  "code": true,
+                  "text": "number"
+                },
+                {
+                  "text": " 类型，而 "
+                },
+                {
+                  "code": true,
+                  "text": "number"
+                },
+                {
+                  "text": " 类型的变量没有 "
+                },
+                {
+                  "code": true,
+                  "text": "length"
+                },
+                {
+                  "text": " 属性，所以 TS 编译器报错了。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "为了解决上面的问题，我们可以更近一步，对函数做出修改如下："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "function getTutureTutorialsInfo<T>(info: T[]): T[] {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  console.log(info.length);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  return info;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "这样就好啦，不仅类型确定了，而且参数和返回值类型也一致，并且我们还能明确的使用 "
+                },
+                {
+                  "code": true,
+                  "text": "info.length"
+                },
+                {
+                  "text": " 了，因为 TS 编译器知道 "
+                },
+                {
+                  "code": true,
+                  "text": "info"
+                },
+                {
+                  "text": " 是一个数组，这个时候你在 VSCode 编辑器里面输入 "
+                },
+                {
+                  "code": true,
+                  "text": "info."
+                },
+                {
+                  "text": " ，应该会提示你如下效果："
+                },
+                {
+                  "type": "image",
+                  "url": "https://cdn.nlark.com/yuque/0/2020/png/123790/1589374228216-c1add9d1-9f7c-4186-b888-b0fcf99a8e98.png#align=left&display=inline&height=367&margin=%5Bobject%20Object%5D&name=image.png&originHeight=734&originWidth=1484&size=134748&status=done&style=none&width=742",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "text": "有了代码补全的 TS 充满了活力🔥！"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "经过上面的例子，我们发现，其实泛型，就像是一个关于 “类型的函数” 一样，给定输入的类型变量，然后可以使用输入变量经过组合比如 "
+                },
+                {
+                  "code": true,
+                  "text": "T[]"
+                },
+                {
+                  "text": " 、进行联合类型或交叉类型操作，来作为注解类型使用。"
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "类型函数的使用"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "上面我们定义了第一个泛型 - “类型的函数”，接下来我们来尝试使用我们的泛型，在 "
+                },
+                {
+                  "code": true,
+                  "text": "src/index.ts"
+                },
+                {
+                  "text": " 中对代码做出对应的修改如下："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "function getTutureTutorialsInfo<T>(info: T[]): T[] {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  console.log(info.length);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  return info;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "getTutureTutorialsInfo<string>(['hello tuture', 'hello world'])"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "可以看到对应 "
+                },
+                {
+                  "code": true,
+                  "text": "<T>"
+                },
+                {
+                  "text": " 定义了泛型中的类型变量，我们在调用泛型时，也对应写了 "
+                },
+                {
+                  "code": true,
+                  "text": "<string>"
+                },
+                {
+                  "text": " ，这样 "
+                },
+                {
+                  "code": true,
+                  "text": "T"
+                },
+                {
+                  "text": " 就在 "
+                },
+                {
+                  "code": true,
+                  "text": "getTutureTutorialsInfo"
+                },
+                {
+                  "text": " 函数中就会以 "
+                },
+                {
+                  "code": true,
+                  "text": "string"
+                },
+                {
+                  "text": " 的类型被使用，参数 "
+                },
+                {
+                  "code": true,
+                  "text": "info"
+                },
+                {
+                  "text": " 和返回值也就对应了 "
+                },
+                {
+                  "code": true,
+                  "text": "string[]"
+                },
+                {
+                  "text": " ，你的 VSCode 编辑器里面调用的效果应该如下图，将鼠标移动到 "
+                },
+                {
+                  "code": true,
+                  "text": "getTutureTutorialsInfo"
+                },
+                {
+                  "text": " 上，会直接显示 "
+                },
+                {
+                  "code": true,
+                  "text": "getTutureTutorialsInfo"
+                },
+                {
+                  "text": " 函数的类型定义，可以看到已经成功将 "
+                },
+                {
+                  "code": true,
+                  "text": "T"
+                },
+                {
+                  "text": " 换成了 "
+                },
+                {
+                  "code": true,
+                  "text": "string"
+                },
+                {
+                  "text": " 。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "url": "https://cdn.nlark.com/yuque/0/2020/png/123790/1589375560841-2bf86e59-8442-43f7-b403-d45c02b07847.png#align=left&display=inline&height=188&margin=%5Bobject%20Object%5D&name=image.png&originHeight=376&originWidth=1284&size=70389&status=done&style=none&width=642",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "并且我们还了解到，泛型的使用和 JS 函数的调用一脉相承，更加坚定了我们 泛型 就是 “类型的函数” 的说法和认知。"
+                }
+              ]
+            },
+            {
+              "type": "block-quote",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "注意："
+                    }
+                  ]
+                },
+                {
+                  "type": "bulleted-list",
+                  "children": [
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "上面的泛型中使用的 T 变量，其实只是一个 TypeScript 界比较习惯性的用法，常用的还有 U 等，当然你也可以写成 YourT ，这里不限制。"
+                        }
+                      ],
+                      "parent": "bulleted-list",
+                      "level": 0
+                    },
+                    {
+                      "type": "list-item",
+                      "children": [
+                        {
+                          "text": "上面的泛型调用时，T 接受的类型可以是任意类型，比如对象、函数等类型，不仅仅限于 "
+                        },
+                        {
+                          "code": true,
+                          "text": "string"
+                        },
+                        {
+                          "text": " 、 "
+                        },
+                        {
+                          "code": true,
+                          "text": "number"
+                        },
+                        {
+                          "text": " 等"
+                        }
+                      ],
+                      "parent": "bulleted-list",
+                      "level": 0
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "heading-two",
+              "children": [
+                {
+                  "text": "泛型，再回顾"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们在上面用了很多的笔墨来试图将泛型和 “类型的函数” 划上等号，目的是为了让你理解泛型它工作的一个本来面貌。了解了泛型本来面貌之后，相信诸如使用泛型可以使得 TS 代码组件化，复用代码，你也能了然如胸了。"
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "泛型是在调用时再限定类型"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们在定义泛型的时候，是一系列类型变量，如 "
+                },
+                {
+                  "code": true,
+                  "text": "T"
+                },
+                {
+                  "text": " 、 "
+                },
+                {
+                  "code": true,
+                  "text": "U"
+                },
+                {
+                  "text": " 等，这些变量实际的类型我们在定义的时候是不知道的，只有在进行泛型调用的时候，由用户给定实际的类型，所以这里有一种延迟声明类型的作用。"
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "泛型是否也有多个类型变量？"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "那么，既然泛型可以看做是 “类型的函数”，那么函数能接收多个参数的话，我们的泛型也能接收多个类型变量，比如："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "function getTutureTutorialsInfo<T, U>(info: T[], profile: U): T[] {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  console.log(info.length);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  console.log(profile);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  return info;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "getTutureTutorialsInfo<string, object>(['hello tuture'], { username: 'tuture'})"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "可以看到，我们修改了 "
+                },
+                {
+                  "code": true,
+                  "text": "getTutureTutorialsInfo"
+                },
+                {
+                  "text": " 函数的泛型定义，添加了一个新的类型变量 "
+                },
+                {
+                  "code": true,
+                  "text": "U"
+                },
+                {
+                  "text": " ，并用 "
+                },
+                {
+                  "code": true,
+                  "text": "U"
+                },
+                {
+                  "text": " 来注解了函数的第二个参数 "
+                },
+                {
+                  "code": true,
+                  "text": "profile"
+                },
+                {
+                  "text": " 的类型。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "同样，在调用 "
+                },
+                {
+                  "code": true,
+                  "text": "getTutureTutorialsInfo"
+                },
+                {
+                  "text": " 函数的时候，我们也需要传入两个类型变量，这里我们的 "
+                },
+                {
+                  "code": true,
+                  "text": "profile"
+                },
+                {
+                  "text": " 被认为是一个 "
+                },
+                {
+                  "code": true,
+                  "text": "object"
+                },
+                {
+                  "text": " 类型。"
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "匿名函数泛型？"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在之前的内容中，我们通过命名函数来讲解了泛型，那么匿名函数如何使用泛型了？其实和命名函数类似，只不过匿名函数是如下形式："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "const getTutureTutorialsInfo: <T>(info: T[]) => T[] = (info) => {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  console.log(info.length);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  return info;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "// 或者"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "const getTutureTutorialsInfo: <T>(info: T[]) => T[] = function (info) {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  console.log(info.length);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  return info;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们直接给匿名函数被赋值的变量进行匿名函数的注解，并加上泛型，你应该回想起之前给一个变量注解函数类型时的样子："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "(args1: type1, args2: type2, ..., args3: type3) => returnType"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "而匿名函数泛型只不过在之前加上了 "
+                },
+                {
+                  "code": true,
+                  "text": "<T>"
+                },
+                {
+                  "text": " 类型变量，然后可以用于注解参数和返回值。"
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "泛型默认类型参数？"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "既然我们声称泛型是关于 “类型的函数”，为了更加深刻的论证我们这个观点，我们再进一步。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们都知道函数存在默认参数一说，那么作为 “类型的函数” - 泛型，是否也有默认类型参数这一说了？不好意思，还真的有！我们来看个例子："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "function getTutureTutorialsInfo<T, U = number>(info: T[], profile: U): T[] {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  console.log(info.length);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  console.log(profile);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  return info;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "getTutureTutorialsInfo<string, string>(['hello world'], 'hello tuture')"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "可以看到我们给类型变量 "
+                },
+                {
+                  "code": true,
+                  "text": "U"
+                },
+                {
+                  "text": " 一个默认的类型参数 "
+                },
+                {
+                  "code": true,
+                  "text": "number"
+                },
+                {
+                  "text": " （还记得 ES6 里面有默认值的参数必须靠后放置嘛？）"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "之后我们在进行泛型调用的时候，却给 "
+                },
+                {
+                  "code": true,
+                  "text": "U"
+                },
+                {
+                  "text": " 传了 "
+                },
+                {
+                  "code": true,
+                  "text": "string"
+                },
+                {
+                  "text": " 类型，把这段代码放到 "
+                },
+                {
+                  "code": true,
+                  "text": "src/index.ts"
+                },
+                {
+                  "text": " 里面，应该不会报错，并且编辑器里面有良好的提示："
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "image",
+                  "url": "https://cdn.nlark.com/yuque/0/2020/png/123790/1589675218585-092b151b-3854-4f6d-9787-45448a994aff.png#align=left&display=inline&height=113&margin=%5Bobject%20Object%5D&name=image.png&originHeight=226&originWidth=1376&size=37299&status=done&style=none&width=688",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "heading-two",
+              "children": [
+                {
+                  "text": "泛型，继续前进"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "接下来我们继续深入泛型，解答之前文章里的一些疑问，比如："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "泛型数组"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "类泛型"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "同时我们还会了解一些新的概念，比如："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "接口泛型"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "类型别名泛型"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "泛型约束"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "解决遗留的问题"
+                }
+              ]
+            },
+            {
+              "type": "heading-four",
+              "children": [
+                {
+                  "text": "泛型数组"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "这个我们已经在上面的例子中用到了，泛型实际上定义了一系列类型变量，然后我们可以对这些类型变量做任意的组合以适应各种不同的类型注解需求，其中一个组合例子就是泛型数组 - 某个类型变量的数组形态，也就是我们上面提到的 "
+                },
+                {
+                  "code": true,
+                  "text": "info: T[]"
+                },
+                {
+                  "text": " ，其中 "
+                },
+                {
+                  "code": true,
+                  "text": "T[]"
+                },
+                {
+                  "text": " 就是泛型数组。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "当然泛型数组的表达形式还有另外一种："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "Array<T>"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "即以泛型调用的形式返回一个关于泛型变量 "
+                },
+                {
+                  "code": true,
+                  "text": "T"
+                },
+                {
+                  "text": " 的数组类型。所以我们的 "
+                },
+                {
+                  "code": true,
+                  "text": "getTutureTutorialsInfo"
+                },
+                {
+                  "text": " 函数可以写成如下样子："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "function getTutureTutorialsInfo<T>(info: Array<T>): Array<T> {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  console.log(info.length);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  return info;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "getTutureTutorialsInfo<string>(['hello tuture', 'hello world'])"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "heading-four",
+              "children": [
+                {
+                  "text": "类泛型"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "类泛型的形式和函数泛型类似，我们来看一个类泛型的定义的调用，在 "
+                },
+                {
+                  "code": true,
+                  "text": "src/index.ts"
+                },
+                {
+                  "text": " 里面额外添加下面的内容："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "// 上面是 getTutureTutorialsInfo 泛型函数的定义和调用"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "class Tuture<T> {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": " \tinfo: T[];"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "let tutorial = new Tuture<string>()"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "tutorial.info = ['hello world', 'hello tuture'];"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "类泛型的定义也是在类名之后添加 "
+                },
+                {
+                  "code": true,
+                  "text": "<T>"
+                },
+                {
+                  "text": " 这样的形式，然后就可以在类中使用 "
+                },
+                {
+                  "code": true,
+                  "text": "T"
+                },
+                {
+                  "text": " 类型变量来注解类型。而类泛型的调用和函数泛型的调用类似。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "学习了类泛型，我们再来解析一下在上一篇文章中提到的那个 "
+                },
+                {
+                  "code": true,
+                  "text": "TodoInput"
+                },
+                {
+                  "text": " 组件，类似下面这样："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "class TodoInput extends React.Component<TodoInputProps, TodoInputState> {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  // ... 组件内容 "
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "这个实际上分为两个部分，首先是 "
+                },
+                {
+                  "code": true,
+                  "text": "React.Component"
+                },
+                {
+                  "text": " 组件基类的类泛型调用，然后是 "
+                },
+                {
+                  "code": true,
+                  "text": "TodoInput"
+                },
+                {
+                  "text": " 集成自这个类泛型。因为派生类 "
+                },
+                {
+                  "code": true,
+                  "text": "TodoInput"
+                },
+                {
+                  "text": " 可以获取到父类的属性和方法，所以在 "
+                },
+                {
+                  "code": true,
+                  "text": "TodoInput"
+                },
+                {
+                  "text": " 中使用的 "
+                },
+                {
+                  "code": true,
+                  "text": "this.props"
+                },
+                {
+                  "text": " 和 "
+                },
+                {
+                  "code": true,
+                  "text": "this.state"
+                },
+                {
+                  "text": " 在被类型注解之后，就可以在编码时自动补全，你在写代码的时候应该可以享受到如下好处："
+                },
+                {
+                  "type": "image",
+                  "url": "https://cdn.nlark.com/yuque/0/2020/png/123790/1589439212069-c8c90300-5856-49c9-bb36-f42285155332.png#align=left&display=inline&height=175&margin=%5Bobject%20Object%5D&name=image.png&originHeight=350&originWidth=1504&size=64460&status=done&style=none&width=752",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "heading-three",
+              "children": [
+                {
+                  "text": "开启新篇章"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "了解了函数泛型、类泛型，你有可能有一点想法了关于泛型，是不是我们之前的很多讲解过的内容，如类型别名、接口等。你想对了！TS 会在尽可能多的地方，能用泛型就用上泛型，因为泛型可以将代码组件化，方便复用，所有智能的编译器，能不让你多写的东西，就绝对不会让你多写，通通用泛型给整上。"
+                }
+              ]
+            },
+            {
+              "type": "heading-four",
+              "children": [
+                {
+                  "text": "接口泛型"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在了解接口泛型之前，我们先来看一个接口是怎么写的，在 "
+                },
+                {
+                  "code": true,
+                  "text": "src/index.ts"
+                },
+                {
+                  "text": " 里面添加如下代码："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "interface Profile {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  username: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  nickName: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  avatar: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  age: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "一般我们的 "
+                },
+                {
+                  "code": true,
+                  "text": "Profile"
+                },
+                {
+                  "text": " 类似上面的内容，但是有时候有些字段会根据需求的不同而不同，比如 "
+                },
+                {
+                  "code": true,
+                  "text": "age"
+                },
+                {
+                  "text": " 这个字段，有些人喜欢定义成数字类型 "
+                },
+                {
+                  "code": true,
+                  "text": "number"
+                },
+                {
+                  "text": " ，有些人喜欢定义成字符串类型 "
+                },
+                {
+                  "code": true,
+                  "text": "string"
+                },
+                {
+                  "text": " ，所以这又是一个延迟赋予类型的例子，可以借助泛型来解决，我们修改一下上面的代码："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "interface Profile<T> {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  username: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  nickName: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  avatar: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  age: T;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "type ProfileWithAge = Profile<string>"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "可以看到，接口泛型的声明和调用与函数、类泛型的类似，它允许你在接口里面定义一些属性，使用类型变量来注解，在调用时指明这个属性的类型。"
+                }
+              ]
+            },
+            {
+              "type": "heading-four",
+              "children": [
+                {
+                  "text": "类型别名泛型"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "因为在很多场景下，类型别名和接口充当类似的角色，所以在了解完接口泛型之后，我们有必要来了解学习一下类型别名如何结合泛型使用，和接口类似，将上面的接口泛型 "
+                },
+                {
+                  "code": true,
+                  "text": "Profile"
+                },
+                {
+                  "text": " 用类型别名重写如下："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "type Profile<T> = {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  username: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  nickName: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  avatar: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  age: T;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "type ProfileWithAge = Profile<string>"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "可以看到，基本一致！"
+                }
+              ]
+            },
+            {
+              "type": "heading-four",
+              "children": [
+                {
+                  "text": "泛型约束"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们来解决之前的一个遗留问题，那就是即使我使用了泛型，我还是不知道某个被泛型的类型变量注解的变量的一个结构是怎么样的即："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "function getTutureTutorialsInfo<T, U>(info: T[], profile: U): T[] {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  console.log(info.length);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  console.log(profile);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  return info;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "getTutureTutorialsInfo<string, object>(['hello tuture'], { username: 'tuture'})"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "上面我们用类型变量 "
+                },
+                {
+                  "code": true,
+                  "text": "U"
+                },
+                {
+                  "text": " 注解了 "
+                },
+                {
+                  "code": true,
+                  "text": "profile"
+                },
+                {
+                  "text": " 参数，但我们在使用 "
+                },
+                {
+                  "code": true,
+                  "text": "profile"
+                },
+                {
+                  "text": " 的时候，依然不知道它是什么类型，也就是说泛型虽然解决了类型的可复用性，但是还是不能让我们写代码时获得自动补全的能力😭"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "重申：没有补全的 TypeScript 代码是没有生命的！"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "那么我们如何让在既使用泛型的同时，还能获得代码补全了？答案相信你也猜到了， 那就是我们这一节要讲的泛型约束。我们修改 "
+                },
+                {
+                  "code": true,
+                  "text": "src/index.ts"
+                },
+                {
+                  "text": "  里面的代码如下："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "type Profile<T> = {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  username: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  nickName: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  avatar: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  age: T;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "function getTutureTutorialsInfo<T, U extends Profile<string>>(info: T[], profile: U): T[] {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  console.log(info.length);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  console.log(profile);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  return info;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "可以看到，我们复用了之前定义的 "
+                },
+                {
+                  "code": true,
+                  "text": "getTutureTutorialsInfo"
+                },
+                {
+                  "text": " 和 "
+                },
+                {
+                  "code": true,
+                  "text": "Profile"
+                },
+                {
+                  "text": " ，但是在 "
+                },
+                {
+                  "code": true,
+                  "text": "getTutureTutorialsInfo"
+                },
+                {
+                  "text": " 泛型中第二个类型变量做了点改进，之前只是单纯的 "
+                },
+                {
+                  "code": true,
+                  "text": "U"
+                },
+                {
+                  "text": " ，现在是 "
+                },
+                {
+                  "code": true,
+                  "text": "U extends Profile<string>"
+                },
+                {
+                  "text": " ， "
+                },
+                {
+                  "code": true,
+                  "text": "Profile<string>"
+                },
+                {
+                  "text": " 表示调用类型别名泛型生成一个 "
+                },
+                {
+                  "code": true,
+                  "text": "age"
+                },
+                {
+                  "text": " 为 "
+                },
+                {
+                  "code": true,
+                  "text": "string"
+                },
+                {
+                  "text": " 的新类型别名，然后通过 "
+                },
+                {
+                  "code": true,
+                  "text": "U extends ..."
+                },
+                {
+                  "text": " 的方式，用 "
+                },
+                {
+                  "code": true,
+                  "text": "Profile<string>"
+                },
+                {
+                  "text": " 来限制 "
+                },
+                {
+                  "code": true,
+                  "text": "U"
+                },
+                {
+                  "text": " 的类型，也就是 "
+                },
+                {
+                  "code": true,
+                  "text": "U"
+                },
+                {
+                  "text": " 必须至少包含 "
+                },
+                {
+                  "code": true,
+                  "text": "Profile<string>"
+                },
+                {
+                  "text": " 的类型。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "这个时候，我们在 VSCode 编辑器里面尝试输入 "
+                },
+                {
+                  "code": true,
+                  "text": "profile."
+                },
+                {
+                  "text": " ，应该可以神奇的发现，有了自动补全："
+                },
+                {
+                  "type": "image",
+                  "url": "https://cdn.nlark.com/yuque/0/2020/png/123790/1589444747235-b3442393-4720-4441-a2d2-f7802c33864b.png#align=left&display=inline&height=184&margin=%5Bobject%20Object%5D&name=image.png&originHeight=368&originWidth=1778&size=79012&status=done&style=none&width=889",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "text": "并且还能了解到 "
+                },
+                {
+                  "code": true,
+                  "text": "age"
+                },
+                {
+                  "text": " 是 "
+                },
+                {
+                  "code": true,
+                  "text": "string"
+                },
+                {
+                  "text": " 属性！"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "再次！有了代码补全的 TS 充满了活力🔥！"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "当然这里的用于约束的 "
+                },
+                {
+                  "code": true,
+                  "text": "Profile<string>"
+                },
+                {
+                  "text": " 可以是一个类型别名，也可以是一个接口，也可以是一个类："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "class Profile<T>  {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  username: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  nickName: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  avatar: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  age: T;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "// 或者"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "interface Profile<T>  {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  username: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  nickName: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  avatar: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  age: T;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "// 或者"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "type Profile<T> = {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  username: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  nickName: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  avatar: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  age: T;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "更近一步，这里的用于约束类型变量的类型可以是一些更加高级的类型如联合类型、交叉类型等："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "type Profile<T> = {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  username: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  nickName: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  avatar: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  age: T;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "type Tuture = {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "\tgithub: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  remote: string[];"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "function getTutureTutorialsInfo<T, U extends Profile<string> & Tuture>(info: T[], profile: U): T[] {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  console.log(info.length);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  console.log(profile);"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  return info;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "可以看到我们使用了 "
+                },
+                {
+                  "code": true,
+                  "text": "Profile<string>"
+                },
+                {
+                  "text": " 和 "
+                },
+                {
+                  "code": true,
+                  "text": "Tuture"
+                },
+                {
+                  "text": " 的交叉类型来约束 "
+                },
+                {
+                  "code": true,
+                  "text": "U"
+                },
+                {
+                  "text": " ，在我们的 VSCode 编辑器里面应该会有如下补全效果："
+                },
+                {
+                  "type": "image",
+                  "url": "https://cdn.nlark.com/yuque/0/2020/png/123790/1589450760682-5707d859-e331-4641-881a-aeb0d58a30a6.png#align=left&display=inline&height=523&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1046&originWidth=2082&size=166735&status=done&style=none&width=1041",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "heading-two",
+              "children": [
+                {
+                  "text": "深入实践，注解构造函数"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "在了解泛型的基础知识，并且结合函数、接口、类型别名和类进行结合使用之后，相信你对如何使用泛型已经有了一点经验了。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "而了解了泛型，你就可以开始尝试深入 TS 类型编程的世界了！接下来我们开始深入一下高阶的 TS 类型编程知识，并尝试讲解一些比较边缘情况如何进行类型注解。"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们需要一个 "
+                },
+                {
+                  "code": true,
+                  "text": "createInstance"
+                },
+                {
+                  "text": " 函数，它接收一个类构造函数，然后返回此类的实例，并能在调用之后获得良好的代码补全提示（！很重要），并且此函数还需要有足够好的通用性能处理任意构造函数（！泛型） 。我们尝试在 "
+                },
+                {
+                  "code": true,
+                  "text": "src/index.ts"
+                },
+                {
+                  "text": "  里面编写一个类以及一个创建此类实例的方法："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "class Profile<T> {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  username: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  nickName: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  avatar: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  age: T;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "class TutureProfile extends Profile<string> {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "\tgithub: string; "
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  remote: string[];"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "function createInstance(B) {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  return new B();"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "const myTutureProfile = createInstance(TutureProfile);"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "block-quote",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "不要问我为什么 "
+                    },
+                    {
+                      "code": true,
+                      "text": "createInstance"
+                    },
+                    {
+                      "text": " 的参数是 "
+                    },
+                    {
+                      "code": true,
+                      "text": "B"
+                    },
+                    {
+                      "text": " ，因为我们最后很 "
+                    },
+                    {
+                      "code": true,
+                      "text": "new B()"
+                    },
+                    {
+                      "text": " 。😁"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "当我们编写了上面这个 "
+                },
+                {
+                  "code": true,
+                  "text": "createInstance"
+                },
+                {
+                  "text": " 时，当我们尝试在调用之后输入 "
+                },
+                {
+                  "code": true,
+                  "text": "."
+                },
+                {
+                  "text": " ： "
+                },
+                {
+                  "code": true,
+                  "text": "createInstance(TutureProfile)."
+                },
+                {
+                  "text": " ，发现编辑器里面没有补全提示实例化对象的相关属性如 "
+                },
+                {
+                  "code": true,
+                  "text": "username"
+                },
+                {
+                  "text": " 等"
+                },
+                {
+                  "type": "image",
+                  "url": "https://cdn.nlark.com/yuque/0/2020/png/123790/1589447795049-e455c0d7-dfb1-4a6c-9122-dd9142c05b8f.png#align=left&display=inline&height=121&margin=%5Bobject%20Object%5D&name=image.png&originHeight=242&originWidth=1736&size=42443&status=done&style=none&width=868",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "text": "首先我们来解析一下构造函数的样子，因为 TS 类型是鸭子类型，是基于代码的实际样子来进行类型注解的。构造函数是可被实例化的函数，即可以通过 "
+                },
+                {
+                  "code": true,
+                  "text": "new XXX()"
+                },
+                {
+                  "text": " 进行调用来创建一个实例，所以构造函数的注解应该类似这样："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "interface ConstructorFunction<C> {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": " \t new (): C;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "即形如 "
+                },
+                {
+                  "code": true,
+                  "text": "new (): C"
+                },
+                {
+                  "text": " 的函数形式，表示可以通过调用 "
+                },
+                {
+                  "code": true,
+                  "text": "new XXX()"
+                },
+                {
+                  "text": " 生成一个 "
+                },
+                {
+                  "code": true,
+                  "text": "XXX"
+                },
+                {
+                  "text": " 的实例。即某个类："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "class Profile<T> {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  username: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  nickName: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  avatar: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  age: T;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "我们注解其构造函数类似下面："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "const profileConstructor: ConstructorFunction<Profile<string>> = Profile;"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "这里有同学还记得嘛，我们在上一篇文章中讲到一个类在声明的时候会声明两个东西：1）用于注解此类实例的类型 2）以及此类的构造函数。这个例子是用来表达类在声明时声明的这两样东西的最佳例子之一即："
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "code": true,
+                      "text": "ConstructorFunction"
+                    },
+                    {
+                      "text": " 接口泛型接收的 "
+                    },
+                    {
+                      "code": true,
+                      "text": "C"
+                    },
+                    {
+                      "text": " 用来注解 "
+                    },
+                    {
+                      "code": true,
+                      "text": "new ()"
+                    },
+                    {
+                      "text": " 生成的实例，此为第一：用于注解此类实例的类型。"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "用于注解 "
+                    },
+                    {
+                      "code": true,
+                      "text": "Profile"
+                    },
+                    {
+                      "text": " 的构造函数的类型 "
+                    },
+                    {
+                      "code": true,
+                      "text": "ConstructorFunction<Profile<string>>"
+                    },
+                    {
+                      "text": " ，在注解 "
+                    },
+                    {
+                      "code": true,
+                      "text": "profileConstructor"
+                    },
+                    {
+                      "text": " 变量之后，其初始化赋值是 "
+                    },
+                    {
+                      "code": true,
+                      "text": "Profile"
+                    },
+                    {
+                      "text": " 本身，并且你可以在你的 VSCode 编辑器里面编写上面的代码，应该不会报错，这说明了第二：声明了此类的构造函数。"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "了解了构造函数如何进行类型注解之后，我们来完成第三点要求，让这个 "
+                },
+                {
+                  "code": true,
+                  "text": "createInstance"
+                },
+                {
+                  "text": " 更具通用性，二话不说，泛型走起！最终代码如下："
+                }
+              ]
+            },
+            {
+              "type": "code-block",
+              "lang": "typescript",
+              "children": [
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "class Profile<T> {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  username: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  nickName: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  avatar: string;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  age: T;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "class TutureProfile extends Profile<string> {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "\tgithub: string; "
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  remote: string[];"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "interface ConstructorFunction<C> {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": " \t new (): C;"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "function createInstance<A extends Profile<string>>(B: ConstructorFunction<A>) {"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "  return new B();"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "}"
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "type": "code-line",
+                  "children": [
+                    {
+                      "text": "const myTutureProfile = createInstance(TutureProfile);"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": "现在你在 VSCode 编辑器 "
+                },
+                {
+                  "code": true,
+                  "text": "createInstance(TutureProfile)"
+                },
+                {
+                  "text": " 后面输入 "
+                },
+                {
+                  "code": true,
+                  "text": "."
+                },
+                {
+                  "text": " 应该可以看到代码补全："
+                },
+                {
+                  "type": "image",
+                  "url": "https://cdn.nlark.com/yuque/0/2020/png/123790/1589449713704-5f8278e5-36af-456d-a42d-26ec435891cd.png#align=left&display=inline&height=670&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1340&originWidth=1872&size=186999&status=done&style=none&width=936",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                },
+                {
+                  "text": "这个例子其实关于 "
+                },
+                {
+                  "code": true,
+                  "text": "extends"
+                },
+                {
+                  "text": " 类型约束那一块有点多余，但是为了组合我们在这一篇里面学到的知识，所以我额外把它也加上了，可以看到我们重拾了所有的代码补全，代码补全🐂🍺"
+                }
+              ]
+            },
+            {
+              "type": "block-quote",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "上面类中如 "
+                    },
+                    {
+                      "code": true,
+                      "text": "remote"
+                    },
+                    {
+                      "text": " 等属性会有红色下划线是因为报了 "
+                    },
+                    {
+                      "code": true,
+                      "text": "Property 'remote' has no initializer and is not definitely assigned in the constructor.ts(2564)"
+                    },
+                    {
+                      "text": " ，字面意思就是没有初始化这些属性，这个不重要，可以通过配置移除，也可以初始化。It’s your choice!"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "heading-two",
+              "children": [
+                {
+                  "text": "参考资料"
+                }
+              ]
+            },
+            {
+              "type": "bulleted-list",
+              "children": [
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "十万字带你精通 TypeScript："
+                    },
+                    {
+                      "link": true,
+                      "url": "https://nodelover.gitbook.io/typescript/fan-xing",
+                      "text": "https://nodelover.gitbook.io/typescript/fan-xing"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "什么是 Type predicates: "
+                    },
+                    {
+                      "link": true,
+                      "url": "https://fettblog.eu/typescript-type-predicates/",
+                      "text": "https://fettblog.eu/typescript-type-predicates/"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "从 JavaScript 到 TypeScript - 泛型："
+                    },
+                    {
+                      "link": true,
+                      "url": "https://segmentfault.com/a/1190000010774159",
+                      "text": "https://segmentfault.com/a/1190000010774159"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "深入理解 TypeScript："
+                    },
+                    {
+                      "link": true,
+                      "url": "https://jkchao.github.io/typescript-book-chinese/typings/generices.html#%E5%8A%A8%E6%9C%BA%E5%92%8C%E7%A4%BA%E4%BE%8B",
+                      "text": "https://jkchao.github.io/typescript-book-chinese"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                },
+                {
+                  "type": "list-item",
+                  "children": [
+                    {
+                      "text": "TypeScript 官方文档："
+                    },
+                    {
+                      "link": true,
+                      "url": "https://www.staging-typescript.org/docs/handbook/generics.html",
+                      "text": "https://www.staging-typescript.org/docs/handbook/generics.html"
+                    }
+                  ],
+                  "parent": "bulleted-list",
+                  "level": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "file": "src/index.css",
+          "display": false,
+          "commit": "8e1cda79eafa56b74f5823cd5b9ff61367c88616",
+          "type": "file",
+          "children": [
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "diff-block",
+              "file": "src/index.css",
+              "commit": "8e1cda79eafa56b74f5823cd5b9ff61367c88616",
+              "hiddenLines": [],
+              "children": [
+                {
+                  "text": ""
+                }
+              ]
+            },
+            {
+              "type": "explain",
+              "fixed": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "explain",
+          "fixed": true,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "text": ""
                 }
               ]
             }
